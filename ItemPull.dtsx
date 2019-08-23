@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{6D75F002-61F5-4B81-815B-E665A9C3B36D}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{C3F73CF0-85F2-442D-AB09-5799A4BE9593}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -88,7 +88,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -307,7 +307,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -624,7 +624,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -891,7 +891,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1254,6 +1254,509 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Independant File Loads\get Item Alternates"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{796E21F4-7D59-488D-9E8F-C9016F990869}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get Item Alternates"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_AlternateItem]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ItemCode]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="ItemCode"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Priority]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="Priority"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AlternateItem]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="AlternateItem"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateItem]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateItem]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                          cachedDataType="dbDate"
+                          cachedName="DateCreated"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeCreated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeCreated"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserCreatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserCreatedKey"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                          cachedDataType="dbDate"
+                          cachedName="DateUpdated"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeUpdated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeUpdated"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserUpdatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserUpdatedKey"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="ItemCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                          dataType="wstr"
+                          length="14"
+                          name="Priority" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlternateItem]"
+                          dataType="wstr"
+                          length="30"
+                          name="AlternateItem" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          dataType="dbDate"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          dataType="dbDate"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Independant File Loads\get Item Alternates\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_AlternateItem]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                          name="ItemCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Priority]"
+                          length="14"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]"
+                          name="Priority"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateItem]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AlternateItem]"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[AlternateItem]"
+                          name="AlternateItem"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          name="DateCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          name="TimeCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          name="DateUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          name="TimeUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="ItemCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Priority]"
+                          dataType="wstr"
+                          length="14"
+                          name="Priority" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AlternateItem]"
+                          dataType="wstr"
+                          length="30"
+                          name="AlternateItem" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          dataType="dbDate"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          dataType="dbDate"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                          name="ItemCode" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Priority]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Priority]"
+                          name="Priority" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AlternateItem]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AlternateItem]"
+                          name="AlternateItem" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          name="DateCreated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          name="TimeCreated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          name="DateUpdated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          name="TimeUpdated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Independant File Loads\get Item Alternates.Paths[OLE DB Source Output]"
+                  endId="Package\Independant File Loads\get Item Alternates\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Independant File Loads\get Item Alternates\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Independant File Loads\Get Item Data"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -1292,7 +1795,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2565,7 +3068,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -4683,6 +5186,1075 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Independant File Loads\get item vendors"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0A9F5DE6-4C66-4005-97C8-7CD548755B22}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get item vendors"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Independant File Loads\get item vendors\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_ItemVendor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ItemCode]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="ItemCode"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[APDivisionNo]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="APDivisionNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VendorNo]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="VendorNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VendorAliasItemNo]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="VendorAliasItemNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorAliasItemNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorAliasItemNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptDate]"
+                          cachedDataType="dbDate"
+                          cachedName="LastReceiptDate"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptDate]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptNo]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="LastReceiptNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptHeaderSeqNo]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="LastReceiptHeaderSeqNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptHeaderSeqNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptHeaderSeqNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReturnDate]"
+                          cachedDataType="dbDate"
+                          cachedName="LastReturnDate"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnDate]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnDate]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReturnPurchaseOrderNo]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="LastReturnPurchaseOrderNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnPurchaseOrderNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnPurchaseOrderNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReturnType]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="LastReturnType"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnType]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnType]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptPurchaseOrderNo]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="LastReceiptPurchaseOrderNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptPurchaseOrderNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptPurchaseOrderNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptType]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="LastReceiptType"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptType]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptType]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReturnNo]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="LastReturnNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReturnHeaderSeqNo]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="LastReturnHeaderSeqNo"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnHeaderSeqNo]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnHeaderSeqNo]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VendorWarrantyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="VendorWarrantyCode"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorWarrantyCode]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorWarrantyCode]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptQuantity]"
+                          cachedDataType="numeric"
+                          cachedName="LastReceiptQuantity"
+                          cachedPrecision="15"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptQuantity]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptQuantity]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastUnitCost]"
+                          cachedDataType="numeric"
+                          cachedName="LastUnitCost"
+                          cachedPrecision="15"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUnitCost]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUnitCost]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastAllocatedUnitCost]"
+                          cachedDataType="numeric"
+                          cachedName="LastAllocatedUnitCost"
+                          cachedPrecision="15"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastAllocatedUnitCost]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastAllocatedUnitCost]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StandardLeadTime]"
+                          cachedDataType="numeric"
+                          cachedName="StandardLeadTime"
+                          cachedPrecision="6"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardLeadTime]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardLeadTime]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastLeadTime]"
+                          cachedDataType="numeric"
+                          cachedName="LastLeadTime"
+                          cachedPrecision="6"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastLeadTime]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastLeadTime]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                          cachedDataType="dbDate"
+                          cachedName="DateCreated"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeCreated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeCreated"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserCreatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserCreatedKey"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                          cachedDataType="dbDate"
+                          cachedName="DateUpdated"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeUpdated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeUpdated"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]" />
+                        <inputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserUpdatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserUpdatedKey"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="ItemCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          name="APDivisionNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="VendorNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorAliasItemNo]"
+                          dataType="wstr"
+                          length="30"
+                          name="VendorAliasItemNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptDate]"
+                          dataType="dbDate"
+                          name="LastReceiptDate" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReceiptNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReceiptHeaderSeqNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnDate]"
+                          dataType="dbDate"
+                          name="LastReturnDate" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="LastReturnPurchaseOrderNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnType]"
+                          dataType="wstr"
+                          length="1"
+                          name="LastReturnType" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="LastReceiptPurchaseOrderNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptType]"
+                          dataType="wstr"
+                          length="1"
+                          name="LastReceiptType" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReturnNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReturnHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReturnHeaderSeqNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorWarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="VendorWarrantyCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptQuantity]"
+                          dataType="numeric"
+                          name="LastReceiptQuantity"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastUnitCost]"
+                          dataType="numeric"
+                          name="LastUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastAllocatedUnitCost]"
+                          dataType="numeric"
+                          name="LastAllocatedUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardLeadTime]"
+                          dataType="numeric"
+                          name="StandardLeadTime"
+                          precision="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastLeadTime]"
+                          dataType="numeric"
+                          name="LastLeadTime"
+                          precision="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          dataType="dbDate"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          dataType="dbDate"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Independant File Loads\get item vendors\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_ItemVendor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                          name="ItemCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                          length="2"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                          name="APDivisionNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                          name="VendorNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorAliasItemNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorAliasItemNo]"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorAliasItemNo]"
+                          name="VendorAliasItemNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptDate]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]"
+                          name="LastReceiptDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptNo]"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptNo]"
+                          name="LastReceiptNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptHeaderSeqNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptHeaderSeqNo]"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptHeaderSeqNo]"
+                          name="LastReceiptHeaderSeqNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnDate]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnDate]"
+                          name="LastReturnDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnPurchaseOrderNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnPurchaseOrderNo]"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnPurchaseOrderNo]"
+                          name="LastReturnPurchaseOrderNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnType]"
+                          length="1"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnType]"
+                          name="LastReturnType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptPurchaseOrderNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptPurchaseOrderNo]"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptPurchaseOrderNo]"
+                          name="LastReceiptPurchaseOrderNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptType]"
+                          length="1"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptType]"
+                          name="LastReceiptType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnNo]"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnNo]"
+                          name="LastReturnNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnHeaderSeqNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnHeaderSeqNo]"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReturnHeaderSeqNo]"
+                          name="LastReturnHeaderSeqNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorWarrantyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorWarrantyCode]"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorWarrantyCode]"
+                          name="VendorWarrantyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptQuantity]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptQuantity]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptQuantity]"
+                          name="LastReceiptQuantity"
+                          precision="15"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUnitCost]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUnitCost]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastUnitCost]"
+                          name="LastUnitCost"
+                          precision="15"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastAllocatedUnitCost]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastAllocatedUnitCost]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastAllocatedUnitCost]"
+                          name="LastAllocatedUnitCost"
+                          precision="15"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardLeadTime]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardLeadTime]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardLeadTime]"
+                          name="StandardLeadTime"
+                          precision="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastLeadTime]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastLeadTime]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastLeadTime]"
+                          name="LastLeadTime"
+                          precision="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          name="DateCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          name="TimeCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          name="DateUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          name="TimeUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          name="ItemCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          name="APDivisionNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="VendorNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorAliasItemNo]"
+                          dataType="wstr"
+                          length="30"
+                          name="VendorAliasItemNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptDate]"
+                          dataType="dbDate"
+                          name="LastReceiptDate" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReceiptNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReceiptHeaderSeqNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnDate]"
+                          dataType="dbDate"
+                          name="LastReturnDate" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="LastReturnPurchaseOrderNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnType]"
+                          dataType="wstr"
+                          length="1"
+                          name="LastReturnType" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          name="LastReceiptPurchaseOrderNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptType]"
+                          dataType="wstr"
+                          length="1"
+                          name="LastReceiptType" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReturnNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReturnHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          name="LastReturnHeaderSeqNo" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorWarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="VendorWarrantyCode" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptQuantity]"
+                          dataType="numeric"
+                          name="LastReceiptQuantity"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastUnitCost]"
+                          dataType="numeric"
+                          name="LastUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastAllocatedUnitCost]"
+                          dataType="numeric"
+                          name="LastAllocatedUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardLeadTime]"
+                          dataType="numeric"
+                          name="StandardLeadTime"
+                          precision="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastLeadTime]"
+                          dataType="numeric"
+                          name="LastLeadTime"
+                          precision="6" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          dataType="dbDate"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          dataType="dbDate"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                          name="ItemCode" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                          name="APDivisionNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                          dataType="wstr"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                          name="VendorNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorAliasItemNo]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorAliasItemNo]"
+                          name="VendorAliasItemNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptDate]"
+                          name="LastReceiptDate" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptNo]"
+                          dataType="wstr"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptNo]"
+                          name="LastReceiptNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptHeaderSeqNo]"
+                          name="LastReceiptHeaderSeqNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnDate]"
+                          name="LastReturnDate" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnPurchaseOrderNo]"
+                          name="LastReturnPurchaseOrderNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnType]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnType]"
+                          name="LastReturnType" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptPurchaseOrderNo]"
+                          dataType="wstr"
+                          length="7"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptPurchaseOrderNo]"
+                          name="LastReceiptPurchaseOrderNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptType]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptType]"
+                          name="LastReceiptType" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnNo]"
+                          dataType="wstr"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnNo]"
+                          name="LastReturnNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnHeaderSeqNo]"
+                          dataType="wstr"
+                          length="6"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReturnHeaderSeqNo]"
+                          name="LastReturnHeaderSeqNo" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorWarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorWarrantyCode]"
+                          name="VendorWarrantyCode" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptQuantity]"
+                          dataType="numeric"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptQuantity]"
+                          name="LastReceiptQuantity"
+                          precision="15"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUnitCost]"
+                          dataType="numeric"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastUnitCost]"
+                          name="LastUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastAllocatedUnitCost]"
+                          dataType="numeric"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastAllocatedUnitCost]"
+                          name="LastAllocatedUnitCost"
+                          precision="15"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardLeadTime]"
+                          dataType="numeric"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardLeadTime]"
+                          name="StandardLeadTime"
+                          precision="6" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastLeadTime]"
+                          dataType="numeric"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastLeadTime]"
+                          name="LastLeadTime"
+                          precision="6" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          name="DateCreated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          name="TimeCreated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          dataType="dbDate"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          name="DateUpdated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          name="TimeUpdated" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Independant File Loads\get item vendors.Paths[OLE DB Source Output]"
+                  endId="Package\Independant File Loads\get item vendors\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Independant File Loads\get item vendors\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Independant File Loads\truncate CI_Item"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -4690,7 +6262,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate CI_Item"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -4706,7 +6278,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate extended description"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -4722,12 +6294,44 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate Item Aliases"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
               SQLTask:SqlStatementSource="truncate table dbo.ods_IM_AliasItem" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Independant File Loads\truncate Item Alternates"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3A788CA1-FA0A-45CE-ACA3-790119E54968}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate Item Alternates"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_AlternateItem" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Independant File Loads\truncate item vendors"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{16CF3860-DF7F-4F0B-A447-485A6C55EED8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate item vendors"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_ItemVendor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -4756,6 +6360,22 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Independant File Loads\get Item Aliases" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Independant File Loads.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{3E57D83D-926F-4141-BF6F-1C9FDEA5C5EF}"
+          DTS:From="Package\Independant File Loads\truncate Item Alternates"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Independant File Loads\get Item Alternates" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Independant File Loads.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{1FE98F0C-1202-468C-AE71-19457DA06E32}"
+          DTS:From="Package\Independant File Loads\truncate item vendors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Independant File Loads\get item vendors" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -4772,13 +6392,13 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Independant File Loads\get Item Aliases"
-          TopLeft="700,148" />
-        <NodeLayout
           Size="204,42"
           Id="Package\Independant File Loads\Get Extended Description"
-          TopLeft="358,135" />
+          TopLeft="249,123" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Independant File Loads\get Item Aliases"
+          TopLeft="477,120" />
         <NodeLayout
           Size="147,42"
           Id="Package\Independant File Loads\Get Item Data"
@@ -4790,11 +6410,11 @@
         <NodeLayout
           Size="223,42"
           Id="Package\Independant File Loads\truncate extended description"
-          TopLeft="337,29" />
+          TopLeft="228,17" />
         <NodeLayout
           Size="182,42"
           Id="Package\Independant File Loads\truncate Item Aliases"
-          TopLeft="689,51" />
+          TopLeft="466,23" />
         <EdgeLayout
           Id="Package\Independant File Loads.PrecedenceConstraints[Constraint]"
           TopLeft="139,56">
@@ -4831,7 +6451,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Independant File Loads.PrecedenceConstraints[Constraint 1]"
-          TopLeft="448.5,71">
+          TopLeft="339.5,59">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4865,7 +6485,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Independant File Loads.PrecedenceConstraints[Constraint 2]"
-          TopLeft="778.75,93">
+          TopLeft="555.75,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4885,55 +6505,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="876,245"
-          Size="876,288"
-          Id="Package\Independant File Loads"
-          TopLeft="119,41" />
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\Independant File Loads\get Item Aliases">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Independant File Loads\get Item Aliases\OLE DB Source"
-          TopLeft="750,124" />
+          Size="196,42"
+          Id="Package\Independant File Loads\truncate Item Alternates"
+          TopLeft="656,25" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Independant File Loads\get Item Aliases\OLE DB Destination"
-          TopLeft="775,258" />
+          Size="171,42"
+          Id="Package\Independant File Loads\get Item Alternates"
+          TopLeft="670,128" />
         <EdgeLayout
-          Id="Package\Independant File Loads\get Item Aliases.Paths[OLE DB Source Output]"
-          TopLeft="828.5,166">
+          Id="Package\Independant File Loads.PrecedenceConstraints[Constraint 3]"
+          TopLeft="754.75,67">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35,92"
+              EndConnector="0,61"
               Start="0,0"
-              End="35,84.5">
+              End="0,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42"
-                    Point2="0,46"
-                    Point3="4,46" />
-                  <mssgle:LineSegment
-                    End="31,46" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31,46"
-                    Point2="35,46"
-                    Point3="35,50" />
-                  <mssgle:LineSegment
-                    End="35,84.5" />
+                    End="0,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4942,40 +6535,63 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Independant File Loads\truncate item vendors"
+          TopLeft="856,28" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Independant File Loads\get item vendors"
+          TopLeft="854,132" />
+        <EdgeLayout
+          Id="Package\Independant File Loads.PrecedenceConstraints[Constraint 4]"
+          TopLeft="948.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,62"
+              Start="0,0"
+              End="-14.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-10.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,31"
+                    Point2="-14.5,31"
+                    Point3="-14.5,35" />
+                  <mssgle:LineSegment
+                    End="-14.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1334,262"
+          Size="1334,305"
+          Id="Package\Independant File Loads"
+          TopLeft="119,41" />
       </GraphLayout>
     </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Independant File Loads\get Item Aliases\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Independant File Loads\get Item Aliases\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  </Package>
   <TaskHost
     design-time-name="Package\Independant File Loads\Get Extended Description">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Independant File Loads\Get Extended Description\OLE DB Source"
@@ -5015,7 +6631,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5048,10 +6666,88 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Independant File Loads\get Item Aliases">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Independant File Loads\get Item Aliases\OLE DB Source"
+          TopLeft="750,124" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Independant File Loads\get Item Aliases\OLE DB Destination"
+          TopLeft="775,258" />
+        <EdgeLayout
+          Id="Package\Independant File Loads\get Item Aliases.Paths[OLE DB Source Output]"
+          TopLeft="828.5,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,92"
+              Start="0,0"
+              End="35,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
+                  <mssgle:LineSegment
+                    End="31,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,46"
+                    Point2="35,46"
+                    Point3="35,50" />
+                  <mssgle:LineSegment
+                    End="35,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get Item Aliases\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get Item Aliases\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Independant File Loads\Get Item Data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="130,42"
           Id="Package\Independant File Loads\Get Item Data\Local SQL"
@@ -5091,7 +6787,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5112,6 +6810,158 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Independant File Loads\Get Item Data\Remote SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Independant File Loads\get Item Alternates">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Independant File Loads\get Item Alternates\OLE DB Source"
+          TopLeft="723,110" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Independant File Loads\get Item Alternates\OLE DB Destination"
+          TopLeft="743,242" />
+        <EdgeLayout
+          Id="Package\Independant File Loads\get Item Alternates.Paths[OLE DB Source Output]"
+          TopLeft="801.5,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,90"
+              Start="0,0"
+              End="30,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="4,45" />
+                  <mssgle:LineSegment
+                    End="26,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,45"
+                    Point2="30,45"
+                    Point3="30,49" />
+                  <mssgle:LineSegment
+                    End="30,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get Item Alternates\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get Item Alternates\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Independant File Loads\get item vendors">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Independant File Loads\get item vendors\OLE DB Source"
+          TopLeft="700,80" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Independant File Loads\get item vendors\OLE DB Destination"
+          TopLeft="715,213" />
+        <EdgeLayout
+          Id="Package\Independant File Loads\get item vendors.Paths[OLE DB Source Output]"
+          TopLeft="778.5,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25,91"
+              Start="0,0"
+              End="25,83.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="4,45.5" />
+                  <mssgle:LineSegment
+                    End="21,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,45.5"
+                    Point2="25,45.5"
+                    Point3="25,49.5" />
+                  <mssgle:LineSegment
+                    End="25,83.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get item vendors\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Independant File Loads\get item vendors\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
