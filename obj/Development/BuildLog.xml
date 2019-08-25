@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SelectoDataPull</Name>
-    <LastWriteTime>2019-08-25T15:47:35.7119321Z</LastWriteTime>
+    <LastWriteTime>2019-08-25T18:30:26.4051968Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,12 +13,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>VendorData.dtsx</Name>
-      <LastWriteTime>2019-08-25T15:41:58.4725545Z</LastWriteTime>
+      <LastWriteTime>2019-08-25T18:57:12.8313944Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>UserData.dtsx</Name>
-      <LastWriteTime>2019-08-25T15:46:01.6646808Z</LastWriteTime>
+      <LastWriteTime>2019-08-25T19:28:35.0390233Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CustomerData.dtsx</Name>
+      <LastWriteTime>2019-08-25T18:30:26.3751952Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
