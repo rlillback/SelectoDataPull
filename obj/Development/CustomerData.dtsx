@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CustomerData"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{97DF410D-CF11-4905-BFDF-53B83269C028}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{5545A40E-9949-42A0-B662-FDA08773AD2A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,6 +29,585 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\get AR_TermsCode"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{15A45977-4A84-492B-A491-520CA7A9F58F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get AR_TermsCode"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get AR_TermsCode\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_TermsCode]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get AR_TermsCode\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TermsCode]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="TermsCode"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TermsCodeDesc]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TermsCodeDesc"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCodeDesc]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDateADayOfTheMonth]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DueDateADayOfTheMonth"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateADayOfTheMonth]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountDateADayOfTheMo]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DiscountDateADayOfTheMo"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountDateADayOfTheMo]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountCalculationMethod]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DiscountCalculationMethod"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountCalculationMethod]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountCalculationMethod]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysBeforeDue]"
+                      cachedDataType="numeric"
+                      cachedName="DaysBeforeDue"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDue]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinimumDaysAllowedInv]"
+                      cachedDataType="numeric"
+                      cachedName="MinimumDaysAllowedInv"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedInv]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysBeforeDiscountDue]"
+                      cachedDataType="numeric"
+                      cachedName="DaysBeforeDiscountDue"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDiscountDue]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDiscountDue]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinimumDaysAllowedDisc]"
+                      cachedDataType="numeric"
+                      cachedName="MinimumDaysAllowedDisc"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedDisc]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountRate]"
+                      cachedDataType="numeric"
+                      cachedName="DiscountRate"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountRate]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]" />
+                    <inputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="TermsCodeDesc" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      name="DueDateADayOfTheMonth" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountDateADayOfTheMo" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountCalculationMethod]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountCalculationMethod" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDiscountDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDiscountDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountRate]"
+                      dataType="numeric"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get AR_TermsCode\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get AR_TermsCode\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get AR_TermsCode\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get AR_TermsCode\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_TermsCode]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get AR_TermsCode\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      length="2"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      name="TermsCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCodeDesc]"
+                      length="30"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]"
+                      name="TermsCodeDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateADayOfTheMonth]"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]"
+                      name="DueDateADayOfTheMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountDateADayOfTheMo]"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]"
+                      name="DiscountDateADayOfTheMo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountCalculationMethod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountCalculationMethod]"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountCalculationMethod]"
+                      name="DiscountCalculationMethod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDue]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]"
+                      name="DaysBeforeDue"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedInv]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]"
+                      name="MinimumDaysAllowedInv"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDiscountDue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDiscountDue]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDiscountDue]"
+                      name="DaysBeforeDiscountDue"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedDisc]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountRate]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="TermsCodeDesc" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      name="DueDateADayOfTheMonth" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountDateADayOfTheMo" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountCalculationMethod]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountCalculationMethod" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDiscountDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDiscountDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountRate]"
+                      dataType="numeric"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      name="TermsCode" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCodeDesc]"
+                      name="TermsCodeDesc" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateADayOfTheMonth]"
+                      name="DueDateADayOfTheMonth" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountDateADayOfTheMo]"
+                      name="DiscountDateADayOfTheMo" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountCalculationMethod]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountCalculationMethod]"
+                      name="DiscountCalculationMethod" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDue]"
+                      dataType="numeric"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDue]"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedInv]"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDiscountDue]"
+                      dataType="numeric"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDiscountDue]"
+                      name="DaysBeforeDiscountDue"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedDisc]"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountRate]"
+                      dataType="numeric"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountRate]"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get AR_TermsCode.Paths[OLE DB Source Output]"
+              endId="Package\get AR_TermsCode\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\get AR_TermsCode\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\get customer"
       DTS:CreationName="Microsoft.Pipeline"
@@ -5109,6 +5688,887 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\get salesperson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F3FE77C7-BEA5-4097-8952-6E2425AF1744}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get salesperson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get salesperson\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_Salesperson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get salesperson\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalespersonDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="SalespersonDivisionNo"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonDivisionNo]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalespersonNo]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="SalespersonNo"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonNo]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalespersonName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="SalespersonName"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonName]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonName]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine3]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="AddressLine3"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine3]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine3]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CountryCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CountryCode"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TelephoneNo]"
+                      cachedDataType="wstr"
+                      cachedLength="17"
+                      cachedName="TelephoneNo"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelephoneNo]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneNo]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TelephoneExt]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="TelephoneExt"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelephoneExt]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneExt]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesManagerDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="SalesManagerDivisionNo"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerDivisionNo]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerDivisionNo]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesManagerNo]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="SalesManagerNo"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerNo]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerNo]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRMUserID]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="CRMUserID"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMUserID]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMUserID]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UserKey"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionRate]"
+                      cachedDataType="numeric"
+                      cachedName="CommissionRate"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesManagerCommRate]"
+                      cachedDataType="numeric"
+                      cachedName="SalesManagerCommRate"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerCommRate]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerCommRate]" />
+                    <inputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalespersonDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalespersonNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonName]"
+                      dataType="wstr"
+                      length="30"
+                      name="SalespersonName" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine3]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="20"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelephoneNo]"
+                      dataType="wstr"
+                      length="17"
+                      name="TelephoneNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelephoneExt]"
+                      dataType="wstr"
+                      length="5"
+                      name="TelephoneExt" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalesManagerDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalesManagerNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMUserID]"
+                      dataType="wstr"
+                      length="11"
+                      name="CRMUserID" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserKey" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                      dataType="numeric"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesManagerCommRate]"
+                      dataType="numeric"
+                      name="SalesManagerCommRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get salesperson\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get salesperson\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get salesperson\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get salesperson\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_Salesperson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get salesperson\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonDivisionNo]"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]"
+                      name="SalespersonDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonNo]"
+                      length="4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]"
+                      name="SalespersonNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonName]"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonName]"
+                      name="SalespersonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine3]"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine3]"
+                      name="AddressLine3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="20"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      length="10"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      length="3"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TelephoneNo]"
+                      length="17"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneNo]"
+                      name="TelephoneNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneExt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TelephoneExt]"
+                      length="5"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[TelephoneExt]"
+                      name="TelephoneExt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      length="50"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      name="EmailAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerDivisionNo]"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerDivisionNo]"
+                      name="SalesManagerDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerNo]"
+                      length="4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerNo]"
+                      name="SalesManagerNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMUserID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRMUserID]"
+                      length="11"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMUserID]"
+                      name="CRMUserID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserKey]"
+                      length="10"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]"
+                      name="UserKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerCommRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerCommRate]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesManagerCommRate]"
+                      name="SalesManagerCommRate"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalespersonDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalespersonNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonName]"
+                      dataType="wstr"
+                      length="30"
+                      name="SalespersonName" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine3]"
+                      dataType="wstr"
+                      length="30"
+                      name="AddressLine3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="20"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TelephoneNo]"
+                      dataType="wstr"
+                      length="17"
+                      name="TelephoneNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TelephoneExt]"
+                      dataType="wstr"
+                      length="5"
+                      name="TelephoneExt" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalesManagerDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalesManagerNo" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRMUserID]"
+                      dataType="wstr"
+                      length="11"
+                      name="CRMUserID" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserKey" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                      dataType="numeric"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesManagerCommRate]"
+                      dataType="numeric"
+                      name="SalesManagerCommRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonDivisionNo]"
+                      name="SalespersonDivisionNo" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonNo]"
+                      name="SalespersonNo" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonName]"
+                      name="SalespersonName" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine3]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine3]"
+                      name="AddressLine3" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      name="CountryCode" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TelephoneNo]"
+                      dataType="wstr"
+                      length="17"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TelephoneNo]"
+                      name="TelephoneNo" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TelephoneExt]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TelephoneExt]"
+                      name="TelephoneExt" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      name="EmailAddress" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerDivisionNo]"
+                      name="SalesManagerDivisionNo" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerNo]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerNo]"
+                      name="SalesManagerNo" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRMUserID]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRMUserID]"
+                      name="CRMUserID" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserKey]"
+                      name="UserKey" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                      dataType="numeric"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerCommRate]"
+                      dataType="numeric"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesManagerCommRate]"
+                      name="SalesManagerCommRate"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get salesperson.Paths[OLE DB Source Output]"
+              endId="Package\get salesperson\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\get salesperson\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\get ship to"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -6152,7 +7612,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trunc AR_Customer"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6168,12 +7628,44 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trunc AR_CustomerContact"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
           SQLTask:SqlStatementSource="truncate table dbo.ods_AR_CustomerContact" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trunc AR_TermsCode"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{37DA4576-5FA5-477E-936F-3767DB5EEDF0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trunc AR_TermsCode"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_AR_TermsCode" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trunc salesperson"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64055C02-8678-4EA2-965B-7CE3672F1CDF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trunc salesperson"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_AR_Salesperson" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -6184,7 +7676,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trunc SO_ShipToAddress"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6218,6 +7710,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\get customer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{21E0A263-4439-483B-9AE2-2421E7F0C961}"
+      DTS:From="Package\trunc AR_TermsCode"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\get AR_TermsCode" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F7E00C7-40C9-48AC-97CF-C644D195CE34}"
+      DTS:From="Package\trunc salesperson"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\get salesperson" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6232,17 +7740,9 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
-          Id="Package\trunc AR_Customer"
-          TopLeft="173,66" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\trunc AR_CustomerContact"
-          TopLeft="356,65" />
-        <NodeLayout
-          Size="204,42"
-          Id="Package\trunc SO_ShipToAddress"
-          TopLeft="577,69" />
+          Size="176,42"
+          Id="Package\get AR_TermsCode"
+          TopLeft="813,173" />
         <NodeLayout
           Size="142,42"
           Id="Package\get customer"
@@ -6255,6 +7755,22 @@
           Size="130,42"
           Id="Package\get ship to"
           TopLeft="611,164" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\trunc AR_Customer"
+          TopLeft="173,66" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\trunc AR_CustomerContact"
+          TopLeft="356,65" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\trunc AR_TermsCode"
+          TopLeft="809,86" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\trunc SO_ShipToAddress"
+          TopLeft="577,69" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="677.5,111">
@@ -6333,22 +7849,150 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="901.25,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\trunc salesperson"
+          TopLeft="252,266" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get salesperson"
+          TopLeft="260,358" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="336.75,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\get customer">
+    design-time-name="Package\get AR_TermsCode">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
-          Id="Package\get customer\OLE DB Source"
-          TopLeft="597,147" />
+          Id="Package\get AR_TermsCode\OLE DB Source"
+          TopLeft="540,100" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\get AR_TermsCode\OLE DB Destination"
+          TopLeft="571,223" />
+        <EdgeLayout
+          Id="Package\get AR_TermsCode.Paths[OLE DB Source Output]"
+          TopLeft="618.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,81"
+              Start="0,0"
+              End="41,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.5"
+                    Point2="0,40.5"
+                    Point3="4,40.5" />
+                  <mssgle:LineSegment
+                    End="37,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,40.5"
+                    Point2="41,40.5"
+                    Point3="41,44.5" />
+                  <mssgle:LineSegment
+                    End="41,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get AR_TermsCode\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get AR_TermsCode\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\get customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177,42"
           Id="Package\get customer\OLE DB Destination"
           TopLeft="614,263" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get customer\OLE DB Source"
+          TopLeft="597,147" />
         <EdgeLayout
           Id="Package\get customer.Paths[OLE DB Source Output]"
           TopLeft="675.5,189">
@@ -6380,25 +8024,53 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get customer\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get customer\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\get customer contact">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\get customer contact\OLE DB Source"
-          TopLeft="577,157" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177,42"
           Id="Package\get customer contact\OLE DB Destination"
           TopLeft="602,304" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get customer contact\OLE DB Source"
+          TopLeft="577,157" />
         <EdgeLayout
           Id="Package\get customer contact.Paths[OLE DB Source Output]"
           TopLeft="655.5,199">
@@ -6430,17 +8102,45 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get customer contact\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get customer contact\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\get ship to">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\get ship to\OLE DB Source"
@@ -6480,53 +8180,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\get customer\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\get customer\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\get customer contact\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\get customer contact\OLE DB Destination">
+    design-time-name="Package\get ship to\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6551,8 +8214,71 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\get salesperson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get salesperson\OLE DB Source"
+          TopLeft="496,139" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\get salesperson\OLE DB Destination"
+          TopLeft="522,286" />
+        <EdgeLayout
+          Id="Package\get salesperson.Paths[OLE DB Source Output]"
+          TopLeft="574.5,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,105"
+              Start="0,0"
+              End="36,97.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.5"
+                    Point2="0,52.5"
+                    Point3="4,52.5" />
+                  <mssgle:LineSegment
+                    End="32,52.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,52.5"
+                    Point2="36,52.5"
+                    Point3="36,56.5" />
+                  <mssgle:LineSegment
+                    End="36,97.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\get ship to\OLE DB Destination">
+    design-time-name="Package\get salesperson\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get salesperson\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

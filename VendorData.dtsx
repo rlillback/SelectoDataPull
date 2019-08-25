@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="VendorData"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{D36DF6DC-2C3B-4FDE-AB66-624C7262982C}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{82CE2110-72AF-483C-82DA-9E7CD3D4C7C3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,6 +29,552 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\get AP terms"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FE3ECEBA-FDB2-4427-BF4A-F3576DD85424}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get AP terms"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get AP terms\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AP_Terms]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get AP terms\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TermsCode]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="TermsCode"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TermsCodeDesc]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="TermsCodeDesc"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCodeDesc]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysBeforeDue]"
+                      cachedDataType="numeric"
+                      cachedName="DaysBeforeDue"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDue]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDateADayOfTheMonth]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DueDateADayOfTheMonth"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateADayOfTheMonth]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinimumDaysAllowedInv]"
+                      cachedDataType="numeric"
+                      cachedName="MinimumDaysAllowedInv"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedInv]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysDiscountAllowed]"
+                      cachedDataType="numeric"
+                      cachedName="DaysDiscountAllowed"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysDiscountAllowed]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysDiscountAllowed]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountDateADayOfTheMo]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DiscountDateADayOfTheMo"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountDateADayOfTheMo]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinimumDaysAllowedDisc]"
+                      cachedDataType="numeric"
+                      cachedName="MinimumDaysAllowedDisc"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedDisc]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountRate]"
+                      cachedDataType="numeric"
+                      cachedName="DiscountRate"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountRate]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]" />
+                    <inputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="TermsCodeDesc" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysBeforeDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      name="DueDateADayOfTheMonth" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysDiscountAllowed]"
+                      dataType="numeric"
+                      name="DaysDiscountAllowed"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountDateADayOfTheMo" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountRate]"
+                      dataType="numeric"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get AP terms\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get AP terms\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get AP terms\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get AP terms\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AP_Terms]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get AP terms\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      length="2"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      name="TermsCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCodeDesc]"
+                      length="30"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCodeDesc]"
+                      name="TermsCodeDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDue]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysBeforeDue]"
+                      name="DaysBeforeDue"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateADayOfTheMonth]"
+                      length="1"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateADayOfTheMonth]"
+                      name="DueDateADayOfTheMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedInv]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedInv]"
+                      name="MinimumDaysAllowedInv"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysDiscountAllowed]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysDiscountAllowed]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysDiscountAllowed]"
+                      name="DaysDiscountAllowed"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountDateADayOfTheMo]"
+                      length="1"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountDateADayOfTheMo]"
+                      name="DiscountDateADayOfTheMo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedDisc]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumDaysAllowedDisc]"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountRate]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountRate]"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="TermsCodeDesc" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysBeforeDue]"
+                      dataType="numeric"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      name="DueDateADayOfTheMonth" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DaysDiscountAllowed]"
+                      dataType="numeric"
+                      name="DaysDiscountAllowed"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      name="DiscountDateADayOfTheMo" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountRate]"
+                      dataType="numeric"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      name="TermsCode" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCodeDesc]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCodeDesc]"
+                      name="TermsCodeDesc" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDue]"
+                      dataType="numeric"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysBeforeDue]"
+                      name="DaysBeforeDue"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateADayOfTheMonth]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateADayOfTheMonth]"
+                      name="DueDateADayOfTheMonth" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedInv]"
+                      dataType="numeric"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedInv]"
+                      name="MinimumDaysAllowedInv"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysDiscountAllowed]"
+                      dataType="numeric"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DaysDiscountAllowed]"
+                      name="DaysDiscountAllowed"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountDateADayOfTheMo]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountDateADayOfTheMo]"
+                      name="DiscountDateADayOfTheMo" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedDisc]"
+                      dataType="numeric"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumDaysAllowedDisc]"
+                      name="MinimumDaysAllowedDisc"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountRate]"
+                      dataType="numeric"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountRate]"
+                      name="DiscountRate"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get AP terms.Paths[OLE DB Source Output]"
+              endId="Package\get AP terms\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\get AP terms\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\get bank codes"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2914,6 +3460,22 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\truncate ap terms"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0A458FC1-A99D-4604-8AD4-1C7979385753}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate ap terms"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_AP_Terms" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\truncate AP_Vendor"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -2921,7 +3483,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate AP_Vendor"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2937,7 +3499,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate GL_Bank"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2963,6 +3525,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\get bank codes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A824E827-11C3-4A38-9FE1-E261AE317208}"
+      DTS:From="Package\truncate ap terms"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\get AP terms" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2975,7 +3545,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="153,42"
           Id="Package\get bank codes"
@@ -3048,6 +3618,36 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\truncate ap terms"
+          TopLeft="877,154" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\get AP terms"
+          TopLeft="890,251" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="960,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3101,6 +3701,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get bank codes\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get bank codes\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\get vendors">
     <LayoutInfo>
@@ -3152,19 +3778,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\get vendors\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\get vendors\OLE DB Destination">
     <Properties>
       <Property>
@@ -3178,7 +3791,70 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\get bank codes\OLE DB Source">
+    design-time-name="Package\get vendors\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\get AP terms">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get AP terms\OLE DB Source"
+          TopLeft="596,72" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\get AP terms\OLE DB Destination"
+          TopLeft="614,200" />
+        <EdgeLayout
+          Id="Package\get AP terms.Paths[OLE DB Source Output]"
+          TopLeft="674.5,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,86"
+              Start="0,0"
+              End="28,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="4,43" />
+                  <mssgle:LineSegment
+                    End="24,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,43"
+                    Point2="28,43"
+                    Point3="28,47" />
+                  <mssgle:LineSegment
+                    End="28,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get AP terms\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3191,7 +3867,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\get bank codes\OLE DB Destination">
+    design-time-name="Package\get AP terms\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
