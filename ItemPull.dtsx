@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{A4B993B3-0EE5-4F72-B316-7C5C94F35677}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{B77E10A0-5D73-445D-96DF-E2C745617CDE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7546,7 +7546,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate CI_Item"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7562,7 +7562,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate extended description"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7578,7 +7578,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate Item Aliases"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7610,7 +7610,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate item vendors"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7662,6 +7662,2160 @@
           DTS:To="Package\Item Data Load\get item vendors" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\User Defined Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B90EC9CA-38D2-44D2-A58F-DC7B2320138E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="User Defined Tables">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get brand"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{16778E67-D7A1-415C-849C-C36B72FECDB1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get brand"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get brand\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_Brand]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get brand\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_BRAND]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="UDF_BRAND"
+                          externalMetadataColumnId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_BRAND]"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_BRAND]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_BRAND]"
+                          dataType="wstr"
+                          length="30"
+                          name="UDF_BRAND" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get brand\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get brand\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_Brand]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get brand\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_BRAND]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_BRAND]"
+                          length="30"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_BRAND]"
+                          name="UDF_BRAND"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_BRAND]"
+                          dataType="wstr"
+                          length="30"
+                          name="UDF_BRAND" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_BRAND]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_BRAND]"
+                          name="UDF_BRAND" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get brand.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get brand\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get brand\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get cart size"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2B892A47-43E1-4663-BCB1-4CA433705164}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get cart size"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get cart size\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_CARTRIDGE_SIZE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cart size\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_CARTRIDGE_SIZE]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="UDF_CARTRIDGE_SIZE"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_CARTRIDGE_SIZE]"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CARTRIDGE_SIZE]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_CARTRIDGE_SIZE]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_CARTRIDGE_SIZE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cart size\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get cart size\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_CARTRIDGE_SIZE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cart size\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CARTRIDGE_SIZE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_CARTRIDGE_SIZE]"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CARTRIDGE_SIZE]"
+                          name="UDF_CARTRIDGE_SIZE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_CARTRIDGE_SIZE]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_CARTRIDGE_SIZE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_CARTRIDGE_SIZE]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_CARTRIDGE_SIZE]"
+                          name="UDF_CARTRIDGE_SIZE" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get cart size.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get cart size\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get cart size\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get cart tech"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1AC3D3F5-DE23-49FE-A618-A60C208EBCB5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get cart tech"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get cart tech\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_CARTRIDGE_TECHNOLOGY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="UDF_CODE"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_CODE]"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CODE]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="UDF_DESCRIPTION"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_DESCRIPTION]"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_CODE]"
+                          dataType="wstr"
+                          length="2"
+                          name="UDF_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="UDF_DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get cart tech\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_CARTRIDGE_TECHNOLOGY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_CODE]"
+                          length="2"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_CODE]"
+                          name="UDF_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_DESCRIPTION]"
+                          length="60"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_DESCRIPTION]"
+                          name="UDF_DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_CODE]"
+                          dataType="wstr"
+                          length="2"
+                          name="UDF_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          name="UDF_DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_CODE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_CODE]"
+                          name="UDF_CODE" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_DESCRIPTION]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_DESCRIPTION]"
+                          name="UDF_DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get cart tech.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get cart tech\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get cart tech\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get cat"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F7FEABF1-AA31-4930-867B-5ECC5CCF8B69}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get cat"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get cat\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_PRODUCT_CATEGORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cat\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_PRODUCT_CATEGORY]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="UDF_PRODUCT_CATEGORY"
+                          externalMetadataColumnId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_PRODUCT_CATEGORY]"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_CATEGORY]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_PRODUCT_CATEGORY]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_PRODUCT_CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cat\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get cat\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_PRODUCT_CATEGORY]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get cat\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_CATEGORY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_PRODUCT_CATEGORY]"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_CATEGORY]"
+                          name="UDF_PRODUCT_CATEGORY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_PRODUCT_CATEGORY]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_PRODUCT_CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_PRODUCT_CATEGORY]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_PRODUCT_CATEGORY]"
+                          name="UDF_PRODUCT_CATEGORY" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get cat.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get cat\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get cat\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get head"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CC5DB694-D47F-4302-91E9-134D35A3A124}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get head"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get head\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_HEADS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get head\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_HEADS]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="UDF_HEADS"
+                          externalMetadataColumnId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_HEADS]"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_HEADS]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_HEADS]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_HEADS" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get head\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get head\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_HEADS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get head\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_HEADS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_HEADS]"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_HEADS]"
+                          name="UDF_HEADS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_HEADS]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_HEADS" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_HEADS]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_HEADS]"
+                          name="UDF_HEADS" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get head.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get head\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get head\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get series"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C4B4D5A9-1189-41DF-A3DA-049B6715CCC3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get series"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get series\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_SERIES]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get series\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_SERIES]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="UDF_SERIES"
+                          externalMetadataColumnId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_SERIES]"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_SERIES]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_SERIES]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_SERIES" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get series\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get series\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_SERIES]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get series\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_SERIES]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_SERIES]"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_SERIES]"
+                          name="UDF_SERIES"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_SERIES]"
+                          dataType="wstr"
+                          length="20"
+                          name="UDF_SERIES" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_SERIES]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_SERIES]"
+                          name="UDF_SERIES" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get series.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get series\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get series\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\get stage"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{15557CBC-E9B5-40A5-953D-DA045F894725}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get stage"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\User Defined Tables\get stage\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_PRODUCT_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get stage\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UDF_PRODUCT_STAGE]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="UDF_PRODUCT_STAGE"
+                          externalMetadataColumnId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_PRODUCT_STAGE]"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_STAGE]" />
+                        <inputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UDF_PRODUCT_STAGE]"
+                          dataType="wstr"
+                          length="30"
+                          name="UDF_PRODUCT_STAGE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get stage\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\User Defined Tables\get stage\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_UDT_PRODUCT_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\User Defined Tables\get stage\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_STAGE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_PRODUCT_STAGE]"
+                          length="30"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[UDF_PRODUCT_STAGE]"
+                          name="UDF_PRODUCT_STAGE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UDF_PRODUCT_STAGE]"
+                          dataType="wstr"
+                          length="30"
+                          name="UDF_PRODUCT_STAGE" />
+                        <externalMetadataColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_PRODUCT_STAGE]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UDF_PRODUCT_STAGE]"
+                          name="UDF_PRODUCT_STAGE" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\User Defined Tables\get stage.Paths[OLE DB Source Output]"
+                  endId="Package\User Defined Tables\get stage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\User Defined Tables\get stage\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc brand"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6ED33671-A921-4903-9ADD-4D66FBE9A455}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc brand"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_BRAND" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc cart size"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6C2B4362-E02A-4369-887C-CE0677864A84}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc cart size"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_CARTRIDGE_SIZE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc cart tech"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D4F88285-62F1-4190-BF3E-CE402C69465A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc cart tech"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_CARTRIDGE_TECHNOLOGY" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc cat"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0DD489FF-B290-474D-BB98-84396F2F432B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc cat"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_PRODUCT_CATEGORY" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc head"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8A5BD9FF-E8D9-4820-943B-19CDC35D3919}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc head"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_HEADS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc series"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A6C0612D-6D04-4AF2-803C-ECED24CBBFE3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc series"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_SERIES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\User Defined Tables\trunc stage"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{798FB2AF-E0F7-4B70-805D-990DE527D26D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc stage"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_UDT_PRODUCT_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DE02B88B-4EB7-4112-A0C5-98D7DAC28395}"
+          DTS:From="Package\User Defined Tables\trunc brand"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\User Defined Tables\get brand" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A73C280B-88A3-4855-AF19-E4CFC82AC8A3}"
+          DTS:From="Package\User Defined Tables\trunc cart size"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\User Defined Tables\get cart size" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E5C6B958-65F7-4BEE-8605-342CEC595150}"
+          DTS:From="Package\User Defined Tables\trunc cart tech"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\User Defined Tables\get cart tech" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{F112049C-4576-4967-A406-EACEF9807E90}"
+          DTS:From="Package\User Defined Tables\trunc head"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\User Defined Tables\get head" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E1B1D59-BF3C-49F7-AB27-3B0829B3E3FF}"
+          DTS:From="Package\User Defined Tables\trunc cat"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\User Defined Tables\get cat" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{59DBA143-3E16-44DD-8798-106586B6036D}"
+          DTS:From="Package\User Defined Tables\trunc stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\User Defined Tables\get stage" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\User Defined Tables.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{260E67FE-00BC-4D45-8EC6-9A039C92A627}"
+          DTS:From="Package\User Defined Tables\trunc series"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\User Defined Tables\get series" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -7672,6 +9826,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\BOM Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{55BF6303-4F1D-42BF-8439-EDCA0AEE3887}"
+      DTS:From="Package\Item Data Load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\User Defined Tables" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -7684,7 +9846,98 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\BOM Load\get bill detail"
+          TopLeft="237.333333333333,109" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\BOM Load\get bill header"
+          TopLeft="28,106.333333333333" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\BOM Load\truncate bill detail"
+          TopLeft="238.666666666667,10.3333333333333" />
+        <NodeLayout
+          Size="183,44"
+          Id="Package\BOM Load\truncate bill header"
+          TopLeft="32,10.6666666666667" />
+        <EdgeLayout
+          Id="Package\BOM Load.PrecedenceConstraints[Constraint]"
+          TopLeft="123.5,54.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.5,51.6666666666666"
+              Start="0,0"
+              End="-21.5,44.1666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8333333333333"
+                    Point2="0,25.8333333333333"
+                    Point3="-4,25.8333333333333" />
+                  <mssgle:LineSegment
+                    End="-17.5,25.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.5,25.8333333333333"
+                    Point2="-21.5,25.8333333333333"
+                    Point3="-21.5,29.8333333333333" />
+                  <mssgle:LineSegment
+                    End="-21.5,44.1666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\BOM Load.PrecedenceConstraints[Constraint 1]"
+          TopLeft="321.166666666667,52.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.8333333333333,56.6666666666666"
+              Start="0,0"
+              End="-13.8333333333333,49.1666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3333333333333"
+                    Point2="0,28.3333333333333"
+                    Point3="-4,28.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-9.83333333333331,28.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.83333333333331,28.3333333333333"
+                    Point2="-13.8333333333333,28.3333333333333"
+                    Point3="-13.8333333333333,32.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-13.8333333333333,49.1666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="456,193"
+          Size="456,236"
+          Id="Package\BOM Load"
+          TopLeft="365,364" />
         <NodeLayout
           Size="204,42"
           Id="Package\Item Data Load\Get Extended Description"
@@ -7874,44 +10127,36 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1334,262"
-          Size="1334,305"
+          PanelSize="1137,208"
+          Size="1137,251"
           Id="Package\Item Data Load"
-          TopLeft="119,41" />
-        <NodeLayout
-          Size="183,44"
-          Id="Package\BOM Load\truncate bill header"
-          TopLeft="32,10.6666666666667" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\BOM Load\get bill header"
-          TopLeft="28,106.333333333333" />
+          TopLeft="519,39" />
         <EdgeLayout
-          Id="Package\BOM Load.PrecedenceConstraints[Constraint]"
-          TopLeft="123.5,54.6666666666667">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="899.333333333333,290">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21.5,51.6666666666666"
+              EndConnector="-306.333333333333,74"
               Start="0,0"
-              End="-21.5,44.1666666666666">
+              End="-306.333333333333,66.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.8333333333333" />
+                    End="0,25.6623924117337" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.8333333333333"
-                    Point2="0,25.8333333333333"
-                    Point3="-4,25.8333333333333" />
+                    Point1="0,25.6623924117337"
+                    Point2="0,29.6623924117337"
+                    Point3="-4,29.6623924117337" />
                   <mssgle:LineSegment
-                    End="-17.5,25.8333333333333" />
+                    End="-302.333333333333,29.6623924117337" />
                   <mssgle:CubicBezierSegment
-                    Point1="-17.5,25.8333333333333"
-                    Point2="-21.5,25.8333333333333"
-                    Point3="-21.5,29.8333333333333" />
+                    Point1="-302.333333333333,29.6623924117337"
+                    Point2="-306.333333333333,29.6623924117337"
+                    Point3="-306.333333333333,33.6623924117337" />
                   <mssgle:LineSegment
-                    End="-21.5,44.1666666666666" />
+                    End="-306.333333333333,66.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7921,39 +10166,267 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="165,42"
-          Id="Package\BOM Load\truncate bill detail"
-          TopLeft="238.666666666667,10.3333333333333" />
+          Size="135,42"
+          Id="Package\User Defined Tables\trunc brand"
+          TopLeft="16,17" />
         <NodeLayout
-          Size="140,42"
-          Id="Package\BOM Load\get bill detail"
-          TopLeft="237.333333333333,109" />
+          Size="147,42"
+          Id="Package\User Defined Tables\trunc cart size"
+          TopLeft="154,17" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\User Defined Tables\trunc cart tech"
+          TopLeft="307,15" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\User Defined Tables\trunc head"
+          TopLeft="460,19" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\User Defined Tables\trunc cat"
+          TopLeft="599,21" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\User Defined Tables\trunc stage"
+          TopLeft="726,24" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\User Defined Tables\trunc series"
+          TopLeft="862,28" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\User Defined Tables\get brand"
+          TopLeft="17,103" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\User Defined Tables\get cart size"
+          TopLeft="155,104" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\User Defined Tables\get cart tech"
+          TopLeft="298,107" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\User Defined Tables\get head"
+          TopLeft="441,108" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\User Defined Tables\get cat"
+          TopLeft="578,112" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\User Defined Tables\get stage"
+          TopLeft="697,111" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\User Defined Tables\get series"
+          TopLeft="828,113" />
         <EdgeLayout
-          Id="Package\BOM Load.PrecedenceConstraints[Constraint 1]"
-          TopLeft="321.166666666667,52.3333333333333">
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint]"
+          TopLeft="81.5,59">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.8333333333333,56.6666666666666"
+              EndConnector="0,44"
               Start="0,0"
-              End="-13.8333333333333,49.1666666666666">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.3333333333333"
-                    Point2="0,28.3333333333333"
-                    Point3="-4,28.3333333333333" />
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 1]"
+          TopLeft="225.75,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-9.83333333333331,28.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.83333333333331,28.3333333333333"
-                    Point2="-13.8333333333333,28.3333333333333"
-                    Point3="-13.8333333333333,32.3333333333333" />
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 2]"
+          TopLeft="381,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,50"
+              Start="0,0"
+              End="-13.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-13.8333333333333,49.1666666666666" />
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-9.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,25"
+                    Point2="-13.5,25"
+                    Point3="-13.5,29" />
+                  <mssgle:LineSegment
+                    End="-13.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 3]"
+          TopLeft="525.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,47"
+              Start="0,0"
+              End="-23.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="-4,23.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,23.5"
+                    Point2="-23.5,23.5"
+                    Point3="-23.5,27.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 4]"
+          TopLeft="659.5,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.5,49"
+              Start="0,0"
+              End="-25.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-21.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,24.5"
+                    Point2="-25.5,24.5"
+                    Point3="-25.5,28.5" />
+                  <mssgle:LineSegment
+                    End="-25.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 5]"
+          TopLeft="792.5,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5,45"
+              Start="0,0"
+              End="-33.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-29.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,22.5"
+                    Point2="-33.5,22.5"
+                    Point3="-33.5,26.5" />
+                  <mssgle:LineSegment
+                    End="-33.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\User Defined Tables.PrecedenceConstraints[Constraint 6]"
+          TopLeft="930,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.5,43"
+              Start="0,0"
+              End="-38.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-34.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.5,21.5"
+                    Point2="-38.5,21.5"
+                    Point3="-38.5,25.5" />
+                  <mssgle:LineSegment
+                    End="-38.5,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7965,36 +10438,36 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="475,217"
-          Size="475,260"
-          Id="Package\BOM Load"
-          TopLeft="114,392" />
+          PanelSize="1051,213"
+          Size="1051,256"
+          Id="Package\User Defined Tables"
+          TopLeft="835,366" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="786,346">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1275.66666666667,290">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-434.5,46"
+              EndConnector="84.8333333333335,76"
               Start="0,0"
-              End="-434.5,38.5">
+              End="84.8333333333335,68.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19" />
+                    End="0,26.4640786931319" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="-4,23" />
+                    Point1="0,26.4640786931319"
+                    Point2="0,30.4640786931319"
+                    Point3="4,30.4640786931319" />
                   <mssgle:LineSegment
-                    End="-430.5,23" />
+                    End="80.8333333333335,30.4640786931319" />
                   <mssgle:CubicBezierSegment
-                    Point1="-430.5,23"
-                    Point2="-434.5,23"
-                    Point3="-434.5,27" />
+                    Point1="80.8333333333335,30.4640786931319"
+                    Point2="84.8333333333335,30.4640786931319"
+                    Point3="84.8333333333335,34.4640786931319" />
                   <mssgle:LineSegment
-                    End="-434.5,38.5" />
+                    End="84.8333333333335,68.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8006,6 +10479,158 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\BOM Load\get bill detail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\BOM Load\get bill detail\OLE DB Source"
+          TopLeft="753,101" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\BOM Load\get bill detail\OLE DB Destination"
+          TopLeft="775,254" />
+        <EdgeLayout
+          Id="Package\BOM Load\get bill detail.Paths[OLE DB Source Output]"
+          TopLeft="831.5,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,111"
+              Start="0,0"
+              End="32,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.5"
+                    Point2="0,55.5"
+                    Point3="4,55.5" />
+                  <mssgle:LineSegment
+                    End="28,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,55.5"
+                    Point2="32,55.5"
+                    Point3="32,59.5" />
+                  <mssgle:LineSegment
+                    End="32,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BOM Load\get bill detail\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BOM Load\get bill detail\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\BOM Load\get bill header">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\BOM Load\get bill header\OLE DB Source"
+          TopLeft="659,131" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\BOM Load\get bill header\OLE DB Destination"
+          TopLeft="679,273" />
+        <EdgeLayout
+          Id="Package\BOM Load\get bill header.Paths[OLE DB Source Output]"
+          TopLeft="737.5,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,100"
+              Start="0,0"
+              End="30,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="4,50" />
+                  <mssgle:LineSegment
+                    End="26,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,50"
+                    Point2="30,50"
+                    Point3="30,54" />
+                  <mssgle:LineSegment
+                    End="30,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BOM Load\get bill header\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BOM Load\get bill header\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Item Data Load\Get Extended Description">
     <LayoutInfo>
@@ -8240,13 +10865,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="130,42"
-          Id="Package\Item Data Load\Get Item Data\Local SQL"
-          TopLeft="591,181" />
-        <NodeLayout
           Size="142,42"
           Id="Package\Item Data Load\Get Item Data\Remote SQL"
           TopLeft="602,83" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Item Data Load\Get Item Data\Local SQL"
+          TopLeft="591,181" />
         <EdgeLayout
           Id="Package\Item Data Load\Get Item Data.Paths[OLE DB Source Output]"
           TopLeft="673,125">
@@ -8387,44 +11012,44 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\BOM Load\get bill header">
+    design-time-name="Package\User Defined Tables\get brand">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
-          Id="Package\BOM Load\get bill header\OLE DB Source"
-          TopLeft="659,131" />
+          Id="Package\User Defined Tables\get brand\OLE DB Source"
+          TopLeft="493,95" />
         <NodeLayout
           Size="177,42"
-          Id="Package\BOM Load\get bill header\OLE DB Destination"
-          TopLeft="679,273" />
+          Id="Package\User Defined Tables\get brand\OLE DB Destination"
+          TopLeft="516,220" />
         <EdgeLayout
-          Id="Package\BOM Load\get bill header.Paths[OLE DB Source Output]"
-          TopLeft="737.5,173">
+          Id="Package\User Defined Tables\get brand.Paths[OLE DB Source Output]"
+          TopLeft="571.5,137">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30,100"
+              EndConnector="33,83"
               Start="0,0"
-              End="30,92.5">
+              End="33,75.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46" />
+                    End="0,37.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46"
-                    Point2="0,50"
-                    Point3="4,50" />
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
                   <mssgle:LineSegment
-                    End="26,50" />
+                    End="29,41.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="26,50"
-                    Point2="30,50"
-                    Point3="30,54" />
+                    Point1="29,41.5"
+                    Point2="33,41.5"
+                    Point3="33,45.5" />
                   <mssgle:LineSegment
-                    End="30,92.5" />
+                    End="33,75.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8437,44 +11062,294 @@
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\BOM Load\get bill detail">
+    design-time-name="Package\User Defined Tables\get cart size">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
-          Id="Package\BOM Load\get bill detail\OLE DB Source"
-          TopLeft="753,101" />
+          Id="Package\User Defined Tables\get cart size\OLE DB Source"
+          TopLeft="584,50" />
         <NodeLayout
           Size="177,42"
-          Id="Package\BOM Load\get bill detail\OLE DB Destination"
-          TopLeft="775,254" />
+          Id="Package\User Defined Tables\get cart size\OLE DB Destination"
+          TopLeft="593,179" />
         <EdgeLayout
-          Id="Package\BOM Load\get bill detail.Paths[OLE DB Source Output]"
-          TopLeft="831.5,143">
+          Id="Package\User Defined Tables\get cart size.Paths[OLE DB Source Output]"
+          TopLeft="662.5,92">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32,111"
+              EndConnector="19,87"
               Start="0,0"
-              End="32,103.5">
+              End="19,79.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
+                    End="0,39.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,51.5"
-                    Point2="0,55.5"
-                    Point3="4,55.5" />
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="4,43.5" />
                   <mssgle:LineSegment
-                    End="28,55.5" />
+                    End="15,43.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="28,55.5"
-                    Point2="32,55.5"
-                    Point3="32,59.5" />
+                    Point1="15,43.5"
+                    Point2="19,43.5"
+                    Point3="19,47.5" />
                   <mssgle:LineSegment
-                    End="32,103.5" />
+                    End="19,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get cart tech">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get cart tech\OLE DB Source"
+          TopLeft="602,96" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get cart tech\OLE DB Destination"
+          TopLeft="630,223" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get cart tech.Paths[OLE DB Source Output]"
+          TopLeft="680.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,85"
+              Start="0,0"
+              End="38,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="4,42.5" />
+                  <mssgle:LineSegment
+                    End="34,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,42.5"
+                    Point2="38,42.5"
+                    Point3="38,46.5" />
+                  <mssgle:LineSegment
+                    End="38,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get head">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get head\OLE DB Source"
+          TopLeft="563,104" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get head\OLE DB Destination"
+          TopLeft="615,280" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get head.Paths[OLE DB Source Output]"
+          TopLeft="641.5,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,134"
+              Start="0,0"
+              End="62,126.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63"
+                    Point2="0,67"
+                    Point3="4,67" />
+                  <mssgle:LineSegment
+                    End="58,67" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,67"
+                    Point2="62,67"
+                    Point3="62,71" />
+                  <mssgle:LineSegment
+                    End="62,126.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get cat">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get cat\OLE DB Source"
+          TopLeft="578,87" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get cat\OLE DB Destination"
+          TopLeft="586,221" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get cat.Paths[OLE DB Source Output]"
+          TopLeft="656.5,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,92"
+              Start="0,0"
+              End="18,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
+                  <mssgle:LineSegment
+                    End="14,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,46"
+                    Point2="18,46"
+                    Point3="18,50" />
+                  <mssgle:LineSegment
+                    End="18,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get stage\OLE DB Source"
+          TopLeft="618,91" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get stage\OLE DB Destination"
+          TopLeft="628,241" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get stage.Paths[OLE DB Source Output]"
+          TopLeft="696.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,108"
+              Start="0,0"
+              End="20,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="4,54" />
+                  <mssgle:LineSegment
+                    End="16,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,54"
+                    Point2="20,54"
+                    Point3="20,58" />
+                  <mssgle:LineSegment
+                    End="20,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get series">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get series\OLE DB Source"
+          TopLeft="621,81" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get series\OLE DB Destination"
+          TopLeft="628,187" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get series.Paths[OLE DB Source Output]"
+          TopLeft="699.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,64"
+              Start="0,0"
+              End="17,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="13,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,32"
+                    Point2="17,32"
+                    Point3="17,36" />
+                  <mssgle:LineSegment
+                    End="17,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8487,7 +11362,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\BOM Load\get bill header\OLE DB Source">
+    design-time-name="Package\User Defined Tables\get brand\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8500,7 +11375,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\BOM Load\get bill header\OLE DB Destination">
+    design-time-name="Package\User Defined Tables\get brand\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8513,7 +11388,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\BOM Load\get bill detail\OLE DB Source">
+    design-time-name="Package\User Defined Tables\get cart size\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8526,7 +11401,137 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\BOM Load\get bill detail\OLE DB Destination">
+    design-time-name="Package\User Defined Tables\get cart size\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get head\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get head\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cat\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cat\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get stage\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get stage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get series\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get series\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
