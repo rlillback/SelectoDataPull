@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/25/2019 11:34:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="N01A-DWSQLPD"
+  DTS:CreatorName="KINETICONET\rlillbac"
+  DTS:DTSID="{B2DA3865-6179-4351-8C77-9EAA5C9DA041}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="VendorData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{55560C9C-E752-4A46-9015-A5BCA77EFB0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5253F4F9-4F76-4EE8-9CA1-C406A2B011B9}"
+      DTS:ObjectName="SELECTO-TS\SQLEXPRESS.SQLSage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SELECTO-TS\SQLEXPRESS;Initial Catalog=SQLSage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\get bank codes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{01F1EE14-1D33-4A4A-A8BC-C47B18067B43}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get bank codes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\get vendors"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{94AD089E-0483-4F3D-B511-9C36C71CA768}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get vendors"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get vendors\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_SY_User]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get vendors\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UserKey"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="UserCode"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCode]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCode]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserLogon]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="UserLogon"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserLogon]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserLogon]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SecurityKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="SecurityKey"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SecurityKey]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[SecurityKey]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomizationCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CustomizationCode"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomizationCode]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomizationCode]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Active]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Active"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Active]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastCompany]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="LastCompany"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastCompany]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastCompany]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ImpliedDecimal]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="ImpliedDecimal"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImpliedDecimal]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImpliedDecimal]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EnableCSODBC]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="EnableCSODBC"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnableCSODBC]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnableCSODBC]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="EmailAddress"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="JobTitle"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobTitle]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentPrinter]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrentPrinter"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentPrinter]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentPrinter]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Locked]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Locked"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Locked]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locked]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShowHiddenDialog]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="ShowHiddenDialog"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShowHiddenDialog]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShowHiddenDialog]" />
+                    <inputColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserKey" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="UserCode" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserLogon]"
+                      dataType="wstr"
+                      length="60"
+                      name="UserLogon" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SecurityKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="SecurityKey" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="20"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="30"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomizationCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CustomizationCode" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                      dataType="wstr"
+                      length="1"
+                      name="Active" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastCompany]"
+                      dataType="wstr"
+                      length="10"
+                      name="LastCompany" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImpliedDecimal]"
+                      dataType="wstr"
+                      length="1"
+                      name="ImpliedDecimal" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EnableCSODBC]"
+                      dataType="wstr"
+                      length="1"
+                      name="EnableCSODBC" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="250"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="1"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentPrinter]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrentPrinter" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Locked]"
+                      dataType="wstr"
+                      length="1"
+                      name="Locked" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShowHiddenDialog]"
+                      dataType="wstr"
+                      length="1"
+                      name="ShowHiddenDialog" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get vendors\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get vendors\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_SY_User]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get vendors\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserKey]"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserKey]"
+                      name="UserKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCode]"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCode]"
+                      name="UserCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserLogon]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserLogon]"
+                      length="60"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserLogon]"
+                      name="UserLogon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[SecurityKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SecurityKey]"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[SecurityKey]"
+                      name="SecurityKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="20"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="30"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomizationCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomizationCode]"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomizationCode]"
+                      name="CustomizationCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Active]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Active]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Active]"
+                      name="Active"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastCompany]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastCompany]"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastCompany]"
+                      name="LastCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImpliedDecimal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImpliedDecimal]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImpliedDecimal]"
+                      name="ImpliedDecimal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnableCSODBC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnableCSODBC]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EnableCSODBC]"
+                      name="EnableCSODBC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      length="250"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      name="EmailAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      name="JobTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentPrinter]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentPrinter]"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentPrinter]"
+                      name="CurrentPrinter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locked]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locked]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[Locked]"
+                      name="Locked"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShowHiddenDialog]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShowHiddenDialog]"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShowHiddenDialog]"
+                      name="ShowHiddenDialog"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserKey" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="UserCode" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserLogon]"
+                      dataType="wstr"
+                      length="60"
+                      name="UserLogon" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SecurityKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="SecurityKey" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="20"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="30"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomizationCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CustomizationCode" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Active]"
+                      dataType="wstr"
+                      length="1"
+                      name="Active" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastCompany]"
+                      dataType="wstr"
+                      length="10"
+                      name="LastCompany" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImpliedDecimal]"
+                      dataType="wstr"
+                      length="1"
+                      name="ImpliedDecimal" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EnableCSODBC]"
+                      dataType="wstr"
+                      length="1"
+                      name="EnableCSODBC" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="250"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="1"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentPrinter]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrentPrinter" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Locked]"
+                      dataType="wstr"
+                      length="1"
+                      name="Locked" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShowHiddenDialog]"
+                      dataType="wstr"
+                      length="1"
+                      name="ShowHiddenDialog" />
+                    <externalMetadataColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserKey]"
+                      name="UserKey" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCode]"
+                      name="UserCode" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserLogon]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserLogon]"
+                      name="UserLogon" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SecurityKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SecurityKey]"
+                      name="SecurityKey" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomizationCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomizationCode]"
+                      name="CustomizationCode" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Active]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Active]"
+                      name="Active" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastCompany]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastCompany]"
+                      name="LastCompany" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImpliedDecimal]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImpliedDecimal]"
+                      name="ImpliedDecimal" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnableCSODBC]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EnableCSODBC]"
+                      name="EnableCSODBC" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      name="EmailAddress" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      name="JobTitle" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentPrinter]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentPrinter]"
+                      name="CurrentPrinter" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locked]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Locked]"
+                      name="Locked" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShowHiddenDialog]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShowHiddenDialog]"
+                      name="ShowHiddenDialog" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get vendors.Paths[OLE DB Source Output]"
+              endId="Package\get vendors\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\get vendors\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate AP_Vendor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F62A3DF0-1107-4013-BB55-278051A5DBBF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate AP_Vendor"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_AP_Vendor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate GL_Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3C9E064E-0BA2-4B93-8410-C9B3D9931EA2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate GL_Bank"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_GL_Bank" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{90024728-4F71-4F53-9342-8D8CD7214203}"
+      DTS:From="Package\truncate AP_Vendor"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\get vendors" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{01F4307D-5D91-4CB4-AE70-4249A68D4AD6}"
+      DTS:From="Package\truncate GL_Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\get bank codes" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\truncate AP_Vendor"
+          TopLeft="281,111" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\truncate GL_Bank"
+          TopLeft="566,132" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\get vendors"
+          TopLeft="299,237" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\get bank codes"
+          TopLeft="614,233" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="368.5,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="649.5,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,59"
+              Start="0,0"
+              End="41,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="37,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,29.5"
+                    Point2="41,29.5"
+                    Point3="41,33.5" />
+                  <mssgle:LineSegment
+                    End="41,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\get vendors">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\get vendors\OLE DB Source"
+          TopLeft="535,131" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\get vendors\OLE DB Destination"
+          TopLeft="551,265" />
+        <EdgeLayout
+          Id="Package\get vendors.Paths[OLE DB Source Output]"
+          TopLeft="613.5,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,92"
+              Start="0,0"
+              End="26,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
+                  <mssgle:LineSegment
+                    End="22,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,46"
+                    Point2="26,46"
+                    Point3="26,50" />
+                  <mssgle:LineSegment
+                    End="26,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get vendors\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get vendors\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
