@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{B77E10A0-5D73-445D-96DF-E2C745617CDE}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{A4B91743-09AB-4A74-8EC9-59A24AB6422F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1139,7 +1139,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate bill detail"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1155,7 +1155,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate bill header"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7539,6 +7539,1941 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Item Data Load\get product lines"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EB8D6D70-924F-4909-808E-1C7F952E9E73}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get product lines"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Item Data Load\get product lines\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_ProductLine]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Item Data Load\get product lines\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      connectionManagerRefId="Package.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductLine]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="ProductLine"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLine]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductLineDesc]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="ProductLineDesc"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLineDesc]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLineDesc]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductType]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="ProductType"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductType]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductType]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Valuation]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Valuation"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valuation]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valuation]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PriceCode]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="PriceCode"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceCode]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceCode]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowBackOrders]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="AllowBackOrders"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowBackOrders]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowBackOrders]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExplodeKitItems]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="ExplodeKitItems"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExplodeKitItems]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExplodeKitItems]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CalculateCommission]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="CalculateCommission"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalculateCommission]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalculateCommission]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StandardUnitOfMeasure]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="StandardUnitOfMeasure"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardUnitOfMeasure]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardUnitOfMeasure]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseUnitOfMeasure]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="PurchaseUnitOfMeasure"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseUnitOfMeasure]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUnitOfMeasure]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesUnitOfMeasure]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="SalesUnitOfMeasure"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesUnitOfMeasure]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUnitOfMeasure]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProcurementType]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="ProcurementType"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcurementType]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProcurementType]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryCycle]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="InventoryCycle"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryCycle]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryCycle]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowTradeDiscount]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="AllowTradeDiscount"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowTradeDiscount]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowTradeDiscount]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InactiveItem]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="InactiveItem"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InactiveItem]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InactiveItem]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllocateLandedCost]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="AllocateLandedCost"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocateLandedCost]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocateLandedCost]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxClass]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="TaxClass"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxClass]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxClass]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchasesTaxClass]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="PurchasesTaxClass"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchasesTaxClass]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchasesTaxClass]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrintReceiptLabels]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PrintReceiptLabels"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintReceiptLabels]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintReceiptLabels]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConfirmCostIncrInRcptOfGoods]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="ConfirmCostIncrInRcptOfGoods"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConfirmCostIncrInRcptOfGoods]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ConfirmCostIncrInRcptOfGoods]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostInventoryByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostInventoryByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostInventoryByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostInventoryByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostCostOfGoodsSoldByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostCostOfGoodsSoldByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostCostOfGoodsSoldByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostCostOfGoodsSoldByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostSalesIncomeByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostSalesIncomeByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostSalesIncomeByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostSalesIncomeByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostReturnsByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostReturnsByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostReturnsByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostReturnsByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostAdjustmentByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostAdjustmentByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostAdjustmentByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostAdjustmentByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostPurchaseByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostPurchaseByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostPurchaseByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPurchaseByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostPOVarianceByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostPOVarianceByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostPOVarianceByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPOVarianceByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostMFGVarianceByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostMFGVarianceByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostMFGVarianceByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostMFGVarianceByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="InventoryAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CostOfGoodsSoldAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="CostOfGoodsSoldAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfGoodsSoldAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfGoodsSoldAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesIncomeAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="SalesIncomeAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesIncomeAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesIncomeAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReturnsAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="ReturnsAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReturnsAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReturnsAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AdjustmentAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="AdjustmentAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AdjustmentAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdjustmentAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="PurchaseAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseOrderVarianceAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="PurchaseOrderVarianceAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderVarianceAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderVarianceAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ManufacturingVarianceAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="ManufacturingVarianceAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ManufacturingVarianceAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManufacturingVarianceAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WarrantyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="WarrantyCode"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarrantyCode]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarrantyCode]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowReturns]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="AllowReturns"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowReturns]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowReturns]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RestockingMethod]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RestockingMethod"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RestockingMethod]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingMethod]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ScrapAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="ScrapAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScrapAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScrapAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RepairsInProcessAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="RepairsInProcessAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RepairsInProcessAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsInProcessAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RepairsClearingAcctKey]"
+                          cachedDataType="wstr"
+                          cachedLength="9"
+                          cachedName="RepairsClearingAcctKey"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RepairsClearingAcctKey]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsClearingAcctKey]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostScrapByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostScrapByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostScrapByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostScrapByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostRepairsInProcessByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostRepairsInProcessByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostRepairsInProcessByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsInProcessByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostRepairsClearingByWhse]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="PostRepairsClearingByWhse"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostRepairsClearingByWhse]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsClearingByWhse]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionRate]"
+                          cachedDataType="numeric"
+                          cachedName="CommissionRate"
+                          cachedPrecision="8"
+                          cachedScale="3"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BaseCommAmt]"
+                          cachedDataType="numeric"
+                          cachedName="BaseCommAmt"
+                          cachedPrecision="11"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCommAmt]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[BaseCommAmt]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseUMConvFctr]"
+                          cachedDataType="numeric"
+                          cachedName="PurchaseUMConvFctr"
+                          cachedPrecision="11"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseUMConvFctr]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUMConvFctr]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesUMConvFctr]"
+                          cachedDataType="numeric"
+                          cachedName="SalesUMConvFctr"
+                          cachedPrecision="11"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesUMConvFctr]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUMConvFctr]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RestockingCharge]"
+                          cachedDataType="numeric"
+                          cachedName="RestockingCharge"
+                          cachedPrecision="10"
+                          cachedScale="3"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RestockingCharge]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingCharge]" />
+                        <inputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                          dataType="wstr"
+                          length="4"
+                          name="ProductLine" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLineDesc]"
+                          dataType="wstr"
+                          length="25"
+                          name="ProductLineDesc" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductType]"
+                          dataType="wstr"
+                          length="1"
+                          name="ProductType" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valuation]"
+                          dataType="wstr"
+                          length="1"
+                          name="Valuation" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceCode]"
+                          dataType="wstr"
+                          length="4"
+                          name="PriceCode" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowBackOrders]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowBackOrders" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExplodeKitItems]"
+                          dataType="wstr"
+                          length="1"
+                          name="ExplodeKitItems" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalculateCommission]"
+                          dataType="wstr"
+                          length="1"
+                          name="CalculateCommission" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="StandardUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="PurchaseUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="SalesUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProcurementType]"
+                          dataType="wstr"
+                          length="1"
+                          name="ProcurementType" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryCycle]"
+                          dataType="wstr"
+                          length="1"
+                          name="InventoryCycle" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowTradeDiscount]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowTradeDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InactiveItem]"
+                          dataType="wstr"
+                          length="1"
+                          name="InactiveItem" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocateLandedCost]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllocateLandedCost" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          name="TaxClass" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchasesTaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          name="PurchasesTaxClass" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintReceiptLabels]"
+                          dataType="wstr"
+                          length="1"
+                          name="PrintReceiptLabels" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConfirmCostIncrInRcptOfGoods]"
+                          dataType="wstr"
+                          length="1"
+                          name="ConfirmCostIncrInRcptOfGoods" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostInventoryByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostInventoryByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostCostOfGoodsSoldByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostCostOfGoodsSoldByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostSalesIncomeByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostSalesIncomeByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostReturnsByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostReturnsByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostAdjustmentByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostAdjustmentByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostPurchaseByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostPurchaseByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostPOVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostPOVarianceByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostMFGVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostMFGVarianceByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="InventoryAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfGoodsSoldAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="CostOfGoodsSoldAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesIncomeAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="SalesIncomeAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReturnsAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ReturnsAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AdjustmentAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="AdjustmentAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="PurchaseAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="PurchaseOrderVarianceAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ManufacturingVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ManufacturingVarianceAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="WarrantyCode" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowReturns]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowReturns" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RestockingMethod]"
+                          dataType="wstr"
+                          length="10"
+                          name="RestockingMethod" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScrapAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ScrapAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RepairsInProcessAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="RepairsInProcessAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RepairsClearingAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="RepairsClearingAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostScrapByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostScrapByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostRepairsInProcessByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostRepairsInProcessByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostRepairsClearingByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostRepairsClearingByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                          dataType="numeric"
+                          name="CommissionRate"
+                          precision="8"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCommAmt]"
+                          dataType="numeric"
+                          name="BaseCommAmt"
+                          precision="11"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseUMConvFctr]"
+                          dataType="numeric"
+                          name="PurchaseUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesUMConvFctr]"
+                          dataType="numeric"
+                          name="SalesUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RestockingCharge]"
+                          dataType="numeric"
+                          name="RestockingCharge"
+                          precision="10"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Item Data Load\get product lines\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Item Data Load\get product lines\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_IM_ProductLine]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Item Data Load\get product lines\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                          name="ProductLine"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLineDesc]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductLineDesc]"
+                          length="25"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLineDesc]"
+                          name="ProductLineDesc"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductType]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductType]"
+                          name="ProductType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valuation]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valuation]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[Valuation]"
+                          name="Valuation"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceCode]"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceCode]"
+                          name="PriceCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowBackOrders]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowBackOrders]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowBackOrders]"
+                          name="AllowBackOrders"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExplodeKitItems]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExplodeKitItems]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExplodeKitItems]"
+                          name="ExplodeKitItems"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalculateCommission]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalculateCommission]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CalculateCommission]"
+                          name="CalculateCommission"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardUnitOfMeasure]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardUnitOfMeasure]"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardUnitOfMeasure]"
+                          name="StandardUnitOfMeasure"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUnitOfMeasure]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseUnitOfMeasure]"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUnitOfMeasure]"
+                          name="PurchaseUnitOfMeasure"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUnitOfMeasure]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesUnitOfMeasure]"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUnitOfMeasure]"
+                          name="SalesUnitOfMeasure"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProcurementType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProcurementType]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProcurementType]"
+                          name="ProcurementType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryCycle]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryCycle]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryCycle]"
+                          name="InventoryCycle"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowTradeDiscount]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowTradeDiscount]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowTradeDiscount]"
+                          name="AllowTradeDiscount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InactiveItem]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InactiveItem]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InactiveItem]"
+                          name="InactiveItem"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocateLandedCost]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllocateLandedCost]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocateLandedCost]"
+                          name="AllocateLandedCost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxClass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxClass]"
+                          length="2"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxClass]"
+                          name="TaxClass"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchasesTaxClass]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchasesTaxClass]"
+                          length="2"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchasesTaxClass]"
+                          name="PurchasesTaxClass"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintReceiptLabels]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintReceiptLabels]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintReceiptLabels]"
+                          name="PrintReceiptLabels"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ConfirmCostIncrInRcptOfGoods]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ConfirmCostIncrInRcptOfGoods]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ConfirmCostIncrInRcptOfGoods]"
+                          name="ConfirmCostIncrInRcptOfGoods"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostInventoryByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostInventoryByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostInventoryByWhse]"
+                          name="PostInventoryByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostCostOfGoodsSoldByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostCostOfGoodsSoldByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostCostOfGoodsSoldByWhse]"
+                          name="PostCostOfGoodsSoldByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostSalesIncomeByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostSalesIncomeByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostSalesIncomeByWhse]"
+                          name="PostSalesIncomeByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostReturnsByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostReturnsByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostReturnsByWhse]"
+                          name="PostReturnsByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostAdjustmentByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostAdjustmentByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostAdjustmentByWhse]"
+                          name="PostAdjustmentByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPurchaseByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostPurchaseByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPurchaseByWhse]"
+                          name="PostPurchaseByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPOVarianceByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostPOVarianceByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostPOVarianceByWhse]"
+                          name="PostPOVarianceByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostMFGVarianceByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostMFGVarianceByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostMFGVarianceByWhse]"
+                          name="PostMFGVarianceByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryAcctKey]"
+                          name="InventoryAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfGoodsSoldAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostOfGoodsSoldAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfGoodsSoldAcctKey]"
+                          name="CostOfGoodsSoldAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesIncomeAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesIncomeAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesIncomeAcctKey]"
+                          name="SalesIncomeAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReturnsAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReturnsAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReturnsAcctKey]"
+                          name="ReturnsAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdjustmentAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdjustmentAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdjustmentAcctKey]"
+                          name="AdjustmentAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseAcctKey]"
+                          name="PurchaseAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderVarianceAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderVarianceAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderVarianceAcctKey]"
+                          name="PurchaseOrderVarianceAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManufacturingVarianceAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManufacturingVarianceAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManufacturingVarianceAcctKey]"
+                          name="ManufacturingVarianceAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarrantyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarrantyCode]"
+                          length="10"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarrantyCode]"
+                          name="WarrantyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowReturns]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowReturns]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowReturns]"
+                          name="AllowReturns"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingMethod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RestockingMethod]"
+                          length="10"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingMethod]"
+                          name="RestockingMethod"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScrapAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScrapAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScrapAcctKey]"
+                          name="ScrapAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsInProcessAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RepairsInProcessAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsInProcessAcctKey]"
+                          name="RepairsInProcessAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsClearingAcctKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RepairsClearingAcctKey]"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RepairsClearingAcctKey]"
+                          name="RepairsClearingAcctKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostScrapByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostScrapByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostScrapByWhse]"
+                          name="PostScrapByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsInProcessByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostRepairsInProcessByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsInProcessByWhse]"
+                          name="PostRepairsInProcessByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsClearingByWhse]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostRepairsClearingByWhse]"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostRepairsClearingByWhse]"
+                          name="PostRepairsClearingByWhse"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                          name="CommissionRate"
+                          precision="8"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[BaseCommAmt]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BaseCommAmt]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[BaseCommAmt]"
+                          name="BaseCommAmt"
+                          precision="11"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUMConvFctr]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseUMConvFctr]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseUMConvFctr]"
+                          name="PurchaseUMConvFctr"
+                          precision="11"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUMConvFctr]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesUMConvFctr]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesUMConvFctr]"
+                          name="SalesUMConvFctr"
+                          precision="11"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingCharge]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RestockingCharge]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[RestockingCharge]"
+                          name="RestockingCharge"
+                          precision="10"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                          dataType="wstr"
+                          length="4"
+                          name="ProductLine" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductLineDesc]"
+                          dataType="wstr"
+                          length="25"
+                          name="ProductLineDesc" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductType]"
+                          dataType="wstr"
+                          length="1"
+                          name="ProductType" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Valuation]"
+                          dataType="wstr"
+                          length="1"
+                          name="Valuation" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceCode]"
+                          dataType="wstr"
+                          length="4"
+                          name="PriceCode" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowBackOrders]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowBackOrders" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExplodeKitItems]"
+                          dataType="wstr"
+                          length="1"
+                          name="ExplodeKitItems" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CalculateCommission]"
+                          dataType="wstr"
+                          length="1"
+                          name="CalculateCommission" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StandardUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="StandardUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="PurchaseUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          name="SalesUnitOfMeasure" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProcurementType]"
+                          dataType="wstr"
+                          length="1"
+                          name="ProcurementType" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryCycle]"
+                          dataType="wstr"
+                          length="1"
+                          name="InventoryCycle" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowTradeDiscount]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowTradeDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InactiveItem]"
+                          dataType="wstr"
+                          length="1"
+                          name="InactiveItem" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllocateLandedCost]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllocateLandedCost" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          name="TaxClass" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchasesTaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          name="PurchasesTaxClass" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintReceiptLabels]"
+                          dataType="wstr"
+                          length="1"
+                          name="PrintReceiptLabels" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ConfirmCostIncrInRcptOfGoods]"
+                          dataType="wstr"
+                          length="1"
+                          name="ConfirmCostIncrInRcptOfGoods" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostInventoryByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostInventoryByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostCostOfGoodsSoldByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostCostOfGoodsSoldByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostSalesIncomeByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostSalesIncomeByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostReturnsByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostReturnsByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostAdjustmentByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostAdjustmentByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostPurchaseByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostPurchaseByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostPOVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostPOVarianceByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostMFGVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostMFGVarianceByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="InventoryAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostOfGoodsSoldAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="CostOfGoodsSoldAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesIncomeAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="SalesIncomeAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReturnsAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ReturnsAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdjustmentAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="AdjustmentAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="PurchaseAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="PurchaseOrderVarianceAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManufacturingVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ManufacturingVarianceAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="WarrantyCode" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowReturns]"
+                          dataType="wstr"
+                          length="1"
+                          name="AllowReturns" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RestockingMethod]"
+                          dataType="wstr"
+                          length="10"
+                          name="RestockingMethod" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScrapAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="ScrapAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RepairsInProcessAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="RepairsInProcessAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RepairsClearingAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          name="RepairsClearingAcctKey" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostScrapByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostScrapByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostRepairsInProcessByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostRepairsInProcessByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostRepairsClearingByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          name="PostRepairsClearingByWhse" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                          dataType="numeric"
+                          name="CommissionRate"
+                          precision="8"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BaseCommAmt]"
+                          dataType="numeric"
+                          name="BaseCommAmt"
+                          precision="11"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseUMConvFctr]"
+                          dataType="numeric"
+                          name="PurchaseUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesUMConvFctr]"
+                          dataType="numeric"
+                          name="SalesUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RestockingCharge]"
+                          dataType="numeric"
+                          name="RestockingCharge"
+                          precision="10"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                          name="ProductLine" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductLineDesc]"
+                          dataType="wstr"
+                          length="25"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductLineDesc]"
+                          name="ProductLineDesc" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductType]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductType]"
+                          name="ProductType" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valuation]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Valuation]"
+                          name="Valuation" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceCode]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceCode]"
+                          name="PriceCode" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowBackOrders]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowBackOrders]"
+                          name="AllowBackOrders" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExplodeKitItems]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExplodeKitItems]"
+                          name="ExplodeKitItems" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalculateCommission]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CalculateCommission]"
+                          name="CalculateCommission" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StandardUnitOfMeasure]"
+                          name="StandardUnitOfMeasure" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseUnitOfMeasure]"
+                          name="PurchaseUnitOfMeasure" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesUnitOfMeasure]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesUnitOfMeasure]"
+                          name="SalesUnitOfMeasure" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProcurementType]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProcurementType]"
+                          name="ProcurementType" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryCycle]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryCycle]"
+                          name="InventoryCycle" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowTradeDiscount]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowTradeDiscount]"
+                          name="AllowTradeDiscount" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InactiveItem]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InactiveItem]"
+                          name="InactiveItem" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllocateLandedCost]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllocateLandedCost]"
+                          name="AllocateLandedCost" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxClass]"
+                          name="TaxClass" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchasesTaxClass]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchasesTaxClass]"
+                          name="PurchasesTaxClass" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintReceiptLabels]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintReceiptLabels]"
+                          name="PrintReceiptLabels" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ConfirmCostIncrInRcptOfGoods]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ConfirmCostIncrInRcptOfGoods]"
+                          name="ConfirmCostIncrInRcptOfGoods" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostInventoryByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostInventoryByWhse]"
+                          name="PostInventoryByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostCostOfGoodsSoldByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostCostOfGoodsSoldByWhse]"
+                          name="PostCostOfGoodsSoldByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostSalesIncomeByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostSalesIncomeByWhse]"
+                          name="PostSalesIncomeByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostReturnsByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostReturnsByWhse]"
+                          name="PostReturnsByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostAdjustmentByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostAdjustmentByWhse]"
+                          name="PostAdjustmentByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostPurchaseByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostPurchaseByWhse]"
+                          name="PostPurchaseByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostPOVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostPOVarianceByWhse]"
+                          name="PostPOVarianceByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostMFGVarianceByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostMFGVarianceByWhse]"
+                          name="PostMFGVarianceByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryAcctKey]"
+                          name="InventoryAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostOfGoodsSoldAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostOfGoodsSoldAcctKey]"
+                          name="CostOfGoodsSoldAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesIncomeAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesIncomeAcctKey]"
+                          name="SalesIncomeAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReturnsAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReturnsAcctKey]"
+                          name="ReturnsAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdjustmentAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdjustmentAcctKey]"
+                          name="AdjustmentAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseAcctKey]"
+                          name="PurchaseAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderVarianceAcctKey]"
+                          name="PurchaseOrderVarianceAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManufacturingVarianceAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManufacturingVarianceAcctKey]"
+                          name="ManufacturingVarianceAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarrantyCode]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarrantyCode]"
+                          name="WarrantyCode" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowReturns]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowReturns]"
+                          name="AllowReturns" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RestockingMethod]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RestockingMethod]"
+                          name="RestockingMethod" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScrapAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScrapAcctKey]"
+                          name="ScrapAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RepairsInProcessAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RepairsInProcessAcctKey]"
+                          name="RepairsInProcessAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RepairsClearingAcctKey]"
+                          dataType="wstr"
+                          length="9"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RepairsClearingAcctKey]"
+                          name="RepairsClearingAcctKey" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostScrapByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostScrapByWhse]"
+                          name="PostScrapByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostRepairsInProcessByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostRepairsInProcessByWhse]"
+                          name="PostRepairsInProcessByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostRepairsClearingByWhse]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostRepairsClearingByWhse]"
+                          name="PostRepairsClearingByWhse" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                          dataType="numeric"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                          name="CommissionRate"
+                          precision="8"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BaseCommAmt]"
+                          dataType="numeric"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BaseCommAmt]"
+                          name="BaseCommAmt"
+                          precision="11"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseUMConvFctr]"
+                          dataType="numeric"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseUMConvFctr]"
+                          name="PurchaseUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesUMConvFctr]"
+                          dataType="numeric"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesUMConvFctr]"
+                          name="SalesUMConvFctr"
+                          precision="11"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RestockingCharge]"
+                          dataType="numeric"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RestockingCharge]"
+                          name="RestockingCharge"
+                          precision="10"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Item Data Load\get product lines.Paths[OLE DB Source Output]"
+                  endId="Package\Item Data Load\get product lines\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Item Data Load\get product lines\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Item Data Load\trunc prod line"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4D5FCA4B-6D44-48F2-B516-1D50B759A672}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc prod line"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D763FCC8-3365-4325-BC81-1EB7082AF5FD}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_IM_ProductLine" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Item Data Load\truncate CI_Item"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -7562,7 +9497,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate extended description"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7610,7 +9545,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate item vendors"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7660,6 +9595,14 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 4"
           DTS:To="Package\Item Data Load\get item vendors" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Item Data Load.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{EA1AD32A-39AB-4791-9824-8C57CD82B326}"
+          DTS:From="Package\Item Data Load\trunc prod line"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Item Data Load\get product lines" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -9652,7 +11595,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc brand"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9668,7 +11611,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc cart size"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9684,7 +11627,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc cart tech"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="8">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9700,7 +11643,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc cat"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9716,7 +11659,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc head"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9732,7 +11675,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc series"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9748,7 +11691,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc stage"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -10124,39 +12067,40 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="1137,208"
-          Size="1137,251"
-          Id="Package\Item Data Load"
-          TopLeft="519,39" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Item Data Load\trunc prod line"
+          TopLeft="1051,29" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Item Data Load\get product lines"
+          TopLeft="1026,129" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="899.333333333333,290">
+          Id="Package\Item Data Load.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1125.5,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-306.333333333333,74"
+              EndConnector="-19.5,58"
               Start="0,0"
-              End="-306.333333333333,66.5">
+              End="-19.5,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6623924117337" />
+                    End="0,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.6623924117337"
-                    Point2="0,29.6623924117337"
-                    Point3="-4,29.6623924117337" />
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
                   <mssgle:LineSegment
-                    End="-302.333333333333,29.6623924117337" />
+                    End="-15.5,29" />
                   <mssgle:CubicBezierSegment
-                    Point1="-302.333333333333,29.6623924117337"
-                    Point2="-306.333333333333,29.6623924117337"
-                    Point3="-306.333333333333,33.6623924117337" />
+                    Point1="-15.5,29"
+                    Point2="-19.5,29"
+                    Point3="-19.5,33" />
                   <mssgle:LineSegment
-                    End="-306.333333333333,66.5" />
+                    End="-19.5,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10165,34 +12109,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="135,42"
-          Id="Package\User Defined Tables\trunc brand"
-          TopLeft="16,17" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\User Defined Tables\trunc cart size"
-          TopLeft="154,17" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\User Defined Tables\trunc cart tech"
-          TopLeft="307,15" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\User Defined Tables\trunc head"
-          TopLeft="460,19" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\User Defined Tables\trunc cat"
-          TopLeft="599,21" />
-        <NodeLayout
-          Size="133,42"
-          Id="Package\User Defined Tables\trunc stage"
-          TopLeft="726,24" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\User Defined Tables\trunc series"
-          TopLeft="862,28" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1302,229"
+          Size="1302,272"
+          Id="Package\Item Data Load"
+          TopLeft="354,39" />
         <NodeLayout
           Size="125,42"
           Id="Package\User Defined Tables\get brand"
@@ -10206,21 +12129,49 @@
           Id="Package\User Defined Tables\get cart tech"
           TopLeft="298,107" />
         <NodeLayout
+          Size="112,42"
+          Id="Package\User Defined Tables\get cat"
+          TopLeft="578,112" />
+        <NodeLayout
           Size="122,42"
           Id="Package\User Defined Tables\get head"
           TopLeft="441,108" />
         <NodeLayout
-          Size="112,42"
-          Id="Package\User Defined Tables\get cat"
-          TopLeft="578,112" />
+          Size="127,42"
+          Id="Package\User Defined Tables\get series"
+          TopLeft="828,113" />
         <NodeLayout
           Size="124,42"
           Id="Package\User Defined Tables\get stage"
           TopLeft="697,111" />
         <NodeLayout
-          Size="127,42"
-          Id="Package\User Defined Tables\get series"
-          TopLeft="828,113" />
+          Size="135,42"
+          Id="Package\User Defined Tables\trunc brand"
+          TopLeft="16,17" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\User Defined Tables\trunc cart size"
+          TopLeft="154,17" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\User Defined Tables\trunc cart tech"
+          TopLeft="307,15" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\User Defined Tables\trunc cat"
+          TopLeft="599,21" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\User Defined Tables\trunc head"
+          TopLeft="460,19" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\User Defined Tables\trunc series"
+          TopLeft="862,28" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\User Defined Tables\trunc stage"
+          TopLeft="726,24" />
         <EdgeLayout
           Id="Package\User Defined Tables.PrecedenceConstraints[Constraint]"
           TopLeft="81.5,59">
@@ -10443,31 +12394,65 @@
           Id="Package\User Defined Tables"
           TopLeft="835,366" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="1275.66666666667,290">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="789.333333333333,311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="84.8333333333335,76"
+              EndConnector="-196.333333333333,53"
               Start="0,0"
-              End="84.8333333333335,68.5">
+              End="-196.333333333333,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.4640786931319" />
+                    End="0,17.2390303774164" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.4640786931319"
-                    Point2="0,30.4640786931319"
-                    Point3="4,30.4640786931319" />
+                    Point1="0,17.2390303774164"
+                    Point2="0,21.2390303774164"
+                    Point3="-4,21.2390303774164" />
                   <mssgle:LineSegment
-                    End="80.8333333333335,30.4640786931319" />
+                    End="-192.333333333333,21.2390303774164" />
                   <mssgle:CubicBezierSegment
-                    Point1="80.8333333333335,30.4640786931319"
-                    Point2="84.8333333333335,30.4640786931319"
-                    Point3="84.8333333333335,34.4640786931319" />
+                    Point1="-192.333333333333,21.2390303774164"
+                    Point2="-196.333333333333,21.2390303774164"
+                    Point3="-196.333333333333,25.2390303774164" />
                   <mssgle:LineSegment
-                    End="84.8333333333335,68.5" />
+                    End="-196.333333333333,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1220.66666666667,311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.833333333333,55"
+              Start="0,0"
+              End="139.833333333333,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0405032218472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0405032218472"
+                    Point2="0,22.0405032218472"
+                    Point3="4,22.0405032218472" />
+                  <mssgle:LineSegment
+                    End="135.833333333333,22.0405032218472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.833333333333,22.0405032218472"
+                    Point2="139.833333333333,22.0405032218472"
+                    Point3="139.833333333333,26.0405032218472" />
+                  <mssgle:LineSegment
+                    End="139.833333333333,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11061,6 +13046,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get brand\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get brand\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\User Defined Tables\get cart size">
     <LayoutInfo>
@@ -11111,6 +13122,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart size\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart size\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\User Defined Tables\get cart tech">
     <LayoutInfo>
@@ -11161,56 +13198,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\User Defined Tables\get head">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\User Defined Tables\get head\OLE DB Source"
-          TopLeft="563,104" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\User Defined Tables\get head\OLE DB Destination"
-          TopLeft="615,280" />
-        <EdgeLayout
-          Id="Package\User Defined Tables\get head.Paths[OLE DB Source Output]"
-          TopLeft="641.5,146">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62,134"
-              Start="0,0"
-              End="62,126.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,63"
-                    Point2="0,67"
-                    Point3="4,67" />
-                  <mssgle:LineSegment
-                    End="58,67" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58,67"
-                    Point2="62,67"
-                    Point3="62,71" />
-                  <mssgle:LineSegment
-                    End="62,126.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\User Defined Tables\get cat">
     <LayoutInfo>
@@ -11261,45 +13274,71 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cat\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get cat\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\User Defined Tables\get stage">
+    design-time-name="Package\User Defined Tables\get head">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
-          Id="Package\User Defined Tables\get stage\OLE DB Source"
-          TopLeft="618,91" />
+          Id="Package\User Defined Tables\get head\OLE DB Source"
+          TopLeft="563,104" />
         <NodeLayout
           Size="177,42"
-          Id="Package\User Defined Tables\get stage\OLE DB Destination"
-          TopLeft="628,241" />
+          Id="Package\User Defined Tables\get head\OLE DB Destination"
+          TopLeft="615,280" />
         <EdgeLayout
-          Id="Package\User Defined Tables\get stage.Paths[OLE DB Source Output]"
-          TopLeft="696.5,133">
+          Id="Package\User Defined Tables\get head.Paths[OLE DB Source Output]"
+          TopLeft="641.5,146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20,108"
+              EndConnector="62,134"
               Start="0,0"
-              End="20,100.5">
+              End="62,126.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50" />
+                    End="0,63" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,50"
-                    Point2="0,54"
-                    Point3="4,54" />
+                    Point1="0,63"
+                    Point2="0,67"
+                    Point3="4,67" />
                   <mssgle:LineSegment
-                    End="16,54" />
+                    End="58,67" />
                   <mssgle:CubicBezierSegment
-                    Point1="16,54"
-                    Point2="20,54"
-                    Point3="20,58" />
+                    Point1="58,67"
+                    Point2="62,67"
+                    Point3="62,71" />
                   <mssgle:LineSegment
-                    End="20,100.5" />
+                    End="62,126.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11311,6 +13350,32 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get head\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get head\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\User Defined Tables\get series">
     <LayoutInfo>
@@ -11362,150 +13427,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get brand\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get brand\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cart size\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cart size\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cart tech\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get head\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get head\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cat\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get cat\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get stage\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get stage\OLE DB Destination">
+    design-time-name="Package\User Defined Tables\get series\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11530,8 +13452,147 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\User Defined Tables\get stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\User Defined Tables\get stage\OLE DB Source"
+          TopLeft="618,91" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\User Defined Tables\get stage\OLE DB Destination"
+          TopLeft="628,241" />
+        <EdgeLayout
+          Id="Package\User Defined Tables\get stage.Paths[OLE DB Source Output]"
+          TopLeft="696.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,108"
+              Start="0,0"
+              End="20,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="4,54" />
+                  <mssgle:LineSegment
+                    End="16,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,54"
+                    Point2="20,54"
+                    Point3="20,58" />
+                  <mssgle:LineSegment
+                    End="20,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\User Defined Tables\get series\OLE DB Destination">
+    design-time-name="Package\User Defined Tables\get stage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\User Defined Tables\get stage\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Item Data Load\get product lines">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Item Data Load\get product lines\OLE DB Source"
+          TopLeft="626,74" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Item Data Load\get product lines\OLE DB Destination"
+          TopLeft="645,195" />
+        <EdgeLayout
+          Id="Package\Item Data Load\get product lines.Paths[OLE DB Source Output]"
+          TopLeft="704.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,79"
+              Start="0,0"
+              End="29,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
+                  <mssgle:LineSegment
+                    End="25,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25,39.5"
+                    Point2="29,39.5"
+                    Point3="29,43.5" />
+                  <mssgle:LineSegment
+                    End="29,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Item Data Load\get product lines\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Item Data Load\get product lines\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
