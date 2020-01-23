@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="VendorData"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{4EC78975-88C1-4436-ADC7-1C73A21A232F}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{AB983449-DE7D-422B-A874-2FF48D5310DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5390,7 +5390,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc po detail"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -5406,7 +5406,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc po header"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -6717,6 +6717,867 @@
                   endId="Package\Vendors and associated data\get bank codes\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\Vendors and associated data\get bank codes\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Vendors and associated data\get Vendor Remit"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5F4B2969-BFAD-406A-997E-597E3621DD41}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="get Vendor Remit"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_AP_VendorRemit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[APDivisionNo]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="APDivisionNo"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VendorNo]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="VendorNo"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToVendorName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="RemitToVendorName"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToVendorName]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToVendorName]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToAddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="RemitToAddressLine1"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine1]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine1]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToAddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="RemitToAddressLine2"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine2]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine2]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToAddressLine3]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="RemitToAddressLine3"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine3]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine3]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToCity]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="RemitToCity"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToCity]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCity]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToState]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="RemitToState"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToState]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToState]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToZipCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RemitToZipCode"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToZipCode]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToZipCode]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToCountryCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="RemitToCountryCode"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToCountryCode]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCountryCode]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToContactCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RemitToContactCode"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToContactCode]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToContactCode]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToTelephoneNo]"
+                          cachedDataType="wstr"
+                          cachedLength="17"
+                          cachedName="RemitToTelephoneNo"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToTelephoneNo]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneNo]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RemitToTelephoneExt]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="RemitToTelephoneExt"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToTelephoneExt]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneExt]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateCreated"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeCreated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeCreated"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserCreatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserCreatedKey"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateUpdated"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeUpdated]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="TimeUpdated"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserUpdatedKey]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="UserUpdatedKey"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]" />
+                        <inputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataRefreshedOn"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          name="APDivisionNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                          dataType="wstr"
+                          length="50"
+                          name="VendorNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToVendorName]"
+                          dataType="wstr"
+                          length="50"
+                          name="RemitToVendorName" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine1]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine1" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine2]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine2" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToAddressLine3]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine3" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToCity]"
+                          dataType="wstr"
+                          length="20"
+                          name="RemitToCity" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToState]"
+                          dataType="wstr"
+                          length="2"
+                          name="RemitToState" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToZipCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="RemitToZipCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToCountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="RemitToCountryCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToContactCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="RemitToContactCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToTelephoneNo]"
+                          dataType="wstr"
+                          length="17"
+                          name="RemitToTelephoneNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RemitToTelephoneExt]"
+                          dataType="wstr"
+                          length="5"
+                          name="RemitToTelephoneExt" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                          dataType="dbTimeStamp"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ods_AP_VendorRemit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      connectionManagerRefId="Package.ConnectionManagers[SELECTO-TS\SQLEXPRESS.SQLSage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                          length="2"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                          name="APDivisionNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                          length="50"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                          name="VendorNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToVendorName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToVendorName]"
+                          length="50"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToVendorName]"
+                          name="RemitToVendorName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine1]"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine1]"
+                          name="RemitToAddressLine1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine2]"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine2]"
+                          name="RemitToAddressLine2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine3]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine3]"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToAddressLine3]"
+                          name="RemitToAddressLine3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToCity]"
+                          length="20"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCity]"
+                          name="RemitToCity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToState]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToState]"
+                          length="2"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToState]"
+                          name="RemitToState"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToZipCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToZipCode]"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToZipCode]"
+                          name="RemitToZipCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCountryCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToCountryCode]"
+                          length="3"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToCountryCode]"
+                          name="RemitToCountryCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToContactCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToContactCode]"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToContactCode]"
+                          name="RemitToContactCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToTelephoneNo]"
+                          length="17"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneNo]"
+                          name="RemitToTelephoneNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneExt]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToTelephoneExt]"
+                          length="5"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[RemitToTelephoneExt]"
+                          name="RemitToTelephoneExt"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                          name="DateCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          length="8"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                          name="TimeCreated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                          name="DateUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          length="8"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                          name="TimeUpdated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          name="APDivisionNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                          dataType="wstr"
+                          length="50"
+                          name="VendorNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToVendorName]"
+                          dataType="wstr"
+                          length="50"
+                          name="RemitToVendorName" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine1]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine1" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine2]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine2" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToAddressLine3]"
+                          dataType="wstr"
+                          length="30"
+                          name="RemitToAddressLine3" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToCity]"
+                          dataType="wstr"
+                          length="20"
+                          name="RemitToCity" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToState]"
+                          dataType="wstr"
+                          length="2"
+                          name="RemitToState" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToZipCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="RemitToZipCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToCountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="RemitToCountryCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToContactCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="RemitToContactCode" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToTelephoneNo]"
+                          dataType="wstr"
+                          length="17"
+                          name="RemitToTelephoneNo" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RemitToTelephoneExt]"
+                          dataType="wstr"
+                          length="5"
+                          name="RemitToTelephoneExt" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          name="DateCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeCreated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserCreatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                          dataType="dbTimeStamp"
+                          name="DateUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          name="TimeUpdated" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          name="UserUpdatedKey" />
+                        <externalMetadataColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          name="DataRefreshedOn" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                          name="APDivisionNo" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                          name="VendorNo" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToVendorName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToVendorName]"
+                          name="RemitToVendorName" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine1]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine1]"
+                          name="RemitToAddressLine1" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine2]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine2]"
+                          name="RemitToAddressLine2" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine3]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToAddressLine3]"
+                          name="RemitToAddressLine3" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToCity]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToCity]"
+                          name="RemitToCity" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToState]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToState]"
+                          name="RemitToState" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToZipCode]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToZipCode]"
+                          name="RemitToZipCode" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToCountryCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToCountryCode]"
+                          name="RemitToCountryCode" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToContactCode]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToContactCode]"
+                          name="RemitToContactCode" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToTelephoneNo]"
+                          dataType="wstr"
+                          length="17"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToTelephoneNo]"
+                          name="RemitToTelephoneNo" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToTelephoneExt]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RemitToTelephoneExt]"
+                          name="RemitToTelephoneExt" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                          name="DateCreated" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                          name="TimeCreated" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                          name="UserCreatedKey" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                          name="DateUpdated" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                          name="TimeUpdated" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                          name="UserUpdatedKey" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                          name="DataRefreshedOn" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Vendors and associated data\get Vendor Remit.Paths[OLE DB Source Output]"
+                  endId="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Vendors and associated data\get Vendor Remit\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -8882,7 +9743,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate ap terms"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -8898,12 +9759,28 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate AP_Vendor"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
               SQLTask:SqlStatementSource="truncate table dbo.ods_AP_Vendor" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Vendors and associated data\truncate AP_VendorRemit"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A3DC0843-9C1C-4127-A168-40C80F8F5EEF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate AP_VendorRemit"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+              SQLTask:SqlStatementSource="truncate table dbo.ods_AP_VendorRemit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -8914,7 +9791,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate GL_Bank"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -8948,6 +9825,14 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Vendors and associated data\get AP terms" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Vendors and associated data.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{A628B6B1-9D66-45CA-9D29-63CF245A153F}"
+          DTS:From="Package\Vendors and associated data\truncate AP_VendorRemit"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Vendors and associated data\get Vendor Remit" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -8964,130 +9849,21 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="136,42"
-          Id="Package\Vendors and associated data\get vendors"
-          TopLeft="49,146" />
-        <EdgeLayout
-          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint]"
-          TopLeft="118.5,62">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Vendors and associated data\truncate AP_Vendor"
-          TopLeft="31,20" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Vendors and associated data\get bank codes"
-          TopLeft="212,144" />
-        <EdgeLayout
-          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 1]"
-          TopLeft="297.5,66">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9,78"
-              Start="0,0"
-              End="-9,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35"
-                    Point2="0,39"
-                    Point3="-4,39" />
-                  <mssgle:LineSegment
-                    End="-5,39" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5,39"
-                    Point2="-9,39"
-                    Point3="-9,43" />
-                  <mssgle:LineSegment
-                    End="-9,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Vendors and associated data\truncate GL_Bank"
-          TopLeft="214,24" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Vendors and associated data\get AP terms"
-          TopLeft="411,123" />
-        <EdgeLayout
-          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 2]"
-          TopLeft="481,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55"
-              Start="0,0"
-              End="0,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Vendors and associated data\truncate ap terms"
-          TopLeft="398,26" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="702,243"
-          Size="702,286"
-          Id="Package\Vendors and associated data"
-          TopLeft="114,54" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Purchase Order History\trunc po header"
-          TopLeft="48,28" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Purchase Order History\trunc po detail"
-          TopLeft="278,26" />
+          Size="139,42"
+          Id="Package\Purchase Order History\get po detail"
+          TopLeft="282,123" />
         <NodeLayout
           Size="147,42"
           Id="Package\Purchase Order History\get po header"
           TopLeft="55,127" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Purchase Order History\get po detail"
-          TopLeft="282,123" />
+          Size="148,42"
+          Id="Package\Purchase Order History\trunc po detail"
+          TopLeft="278,26" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Purchase Order History\trunc po header"
+          TopLeft="48,28" />
         <EdgeLayout
           Id="Package\Purchase Order History.PrecedenceConstraints[Constraint]"
           TopLeft="127.25,70">
@@ -9139,9 +9915,304 @@
           Size="657,271"
           Id="Package\Purchase Order History"
           TopLeft="872,71" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Vendors and associated data\get AP terms"
+          TopLeft="411,123" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Vendors and associated data\get bank codes"
+          TopLeft="212,144" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Vendors and associated data\get vendors"
+          TopLeft="49,146" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Vendors and associated data\truncate ap terms"
+          TopLeft="398,26" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Vendors and associated data\truncate AP_Vendor"
+          TopLeft="31,20" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Vendors and associated data\truncate GL_Bank"
+          TopLeft="214,24" />
+        <EdgeLayout
+          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint]"
+          TopLeft="118.5,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 1]"
+          TopLeft="297.5,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,78"
+              Start="0,0"
+              End="-9,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-5,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,39"
+                    Point2="-9,39"
+                    Point3="-9,43" />
+                  <mssgle:LineSegment
+                    End="-9,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 2]"
+          TopLeft="481,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Vendors and associated data\truncate AP_VendorRemit"
+          TopLeft="304,246" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Vendors and associated data\get Vendor Remit"
+          TopLeft="318,336" />
+        <EdgeLayout
+          Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 3]"
+          TopLeft="401.25,288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="702,432"
+          Size="702,475"
+          Id="Package\Vendors and associated data"
+          TopLeft="114,54" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Purchase Order History\get po detail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Purchase Order History\get po detail\OLE DB Source"
+          TopLeft="680,83" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Purchase Order History\get po detail\OLE DB Destination"
+          TopLeft="684,209" />
+        <EdgeLayout
+          Id="Package\Purchase Order History\get po detail.Paths[OLE DB Source Output]"
+          TopLeft="758.5,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,84"
+              Start="0,0"
+              End="14,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="4,42" />
+                  <mssgle:LineSegment
+                    End="10,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,42"
+                    Point2="14,42"
+                    Point3="14,46" />
+                  <mssgle:LineSegment
+                    End="14,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchase Order History\get po detail\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchase Order History\get po detail\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Purchase Order History\get po header">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Purchase Order History\get po header\OLE DB Source"
+          TopLeft="563,84" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Purchase Order History\get po header\OLE DB Destination"
+          TopLeft="574,235" />
+        <EdgeLayout
+          Id="Package\Purchase Order History\get po header.Paths[OLE DB Source Output]"
+          TopLeft="641.5,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,109"
+              Start="0,0"
+              End="21,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5"
+                    Point2="0,54.5"
+                    Point3="4,54.5" />
+                  <mssgle:LineSegment
+                    End="17,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,54.5"
+                    Point2="21,54.5"
+                    Point3="21,58.5" />
+                  <mssgle:LineSegment
+                    End="21,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchase Order History\get po header\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Purchase Order History\get po header\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Vendors and associated data\get AP terms">
     <LayoutInfo>
@@ -9377,94 +10448,44 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Purchase Order History\get po header">
+    design-time-name="Package\Vendors and associated data\get Vendor Remit">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Purchase Order History\get po header\OLE DB Source"
-          TopLeft="563,84" />
+          Size="150,42"
+          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Source"
+          TopLeft="487,139" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Purchase Order History\get po header\OLE DB Destination"
-          TopLeft="574,235" />
+          Size="171,42"
+          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination"
+          TopLeft="505,252" />
         <EdgeLayout
-          Id="Package\Purchase Order History\get po header.Paths[OLE DB Source Output]"
-          TopLeft="641.5,126">
+          Id="Package\Vendors and associated data\get Vendor Remit.Paths[OLE DB Source Output]"
+          TopLeft="562,181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21,109"
+              EndConnector="28.5,71"
               Start="0,0"
-              End="21,101.5">
+              End="28.5,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5" />
+                    End="0,31.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,50.5"
-                    Point2="0,54.5"
-                    Point3="4,54.5" />
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
                   <mssgle:LineSegment
-                    End="17,54.5" />
+                    End="24.5,35.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="17,54.5"
-                    Point2="21,54.5"
-                    Point3="21,58.5" />
+                    Point1="24.5,35.5"
+                    Point2="28.5,35.5"
+                    Point3="28.5,39.5" />
                   <mssgle:LineSegment
-                    End="21,101.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Purchase Order History\get po detail">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Purchase Order History\get po detail\OLE DB Source"
-          TopLeft="680,83" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Purchase Order History\get po detail\OLE DB Destination"
-          TopLeft="684,209" />
-        <EdgeLayout
-          Id="Package\Purchase Order History\get po detail.Paths[OLE DB Source Output]"
-          TopLeft="758.5,125">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="14,84"
-              Start="0,0"
-              End="14,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="4,42" />
-                  <mssgle:LineSegment
-                    End="10,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10,42"
-                    Point2="14,42"
-                    Point3="14,46" />
-                  <mssgle:LineSegment
-                    End="14,76.5" />
+                    End="28.5,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9477,7 +10498,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Purchase Order History\get po header\OLE DB Source">
+    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9490,33 +10511,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Purchase Order History\get po header\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Purchase Order History\get po detail\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Purchase Order History\get po detail\OLE DB Destination">
+    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
