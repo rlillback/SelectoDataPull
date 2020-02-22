@@ -1,0 +1,2592 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/22/2020 12:06:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="N01A-DWSQLPD"
+  DTS:CreatorName="KINETICONET\rlillbac"
+  DTS:DTSID="{ED420730-86A9-4A9D-85BE-2F1547F8EE44}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{3E58005E-2A51-4ACB-B74D-EF7708BB7FE0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\populate IM404_BinLocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{75EB9B3A-6574-45D7-9E23-BB9472D3B343}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="populate IM404_BinLocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\populate IM404_BinLocation\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_IM404_BinLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate IM404_BinLocation\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WarehouseCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="WarehouseCode"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BinLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="BinLocation"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocation]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocation]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationType]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="LocationType"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationType]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationType]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Aisle]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Aisle"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Aisle]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Aisle]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BinLocationDesc]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="BinLocationDesc"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocationDesc]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationDesc]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SortCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="SortCode"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SortCode]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SortCode]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BayLevel]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="BayLevel"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BayLevel]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BayLevel]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AutoAllocate]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="AutoAllocate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AutoAllocate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoAllocate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Temporary]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Temporary"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Temporary]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Temporary]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DisableInSO]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DisableInSO"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableInSO]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInSO]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DisableInMfg]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DisableInMfg"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableInMfg]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInMfg]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommentText]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="CommentText"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommentText]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommentText]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitOfMeasure1]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="UnitOfMeasure1"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitOfMeasure1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitOfMeasure1]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastIssuedDate]"
+                      cachedDataType="dbDate"
+                      cachedName="LastIssuedDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastIssuedDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastIssuedDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceiptDate]"
+                      cachedDataType="dbDate"
+                      cachedName="LastReceiptDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastPhysicalDate]"
+                      cachedDataType="dbDate"
+                      cachedName="LastPhysicalDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPhysicalDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPhysicalDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinimumQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="MinimumQuantity"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumQuantity]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumQuantity"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumVolume]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumVolume"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbDate"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeCreated]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="TimeCreated"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserCreatedKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UserCreatedKey"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CasePackQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="CasePackQuantity"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CasePackQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePackQuantity]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DisablePutAway]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DisablePutAway"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisablePutAway]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisablePutAway]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DisableMixOfGoods]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DisableMixOfGoods"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableMixOfGoods]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableMixOfGoods]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastPalletID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastPalletID"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPalletID]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletID]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastPalletLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="LastPalletLocation"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPalletLocation]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletLocation]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AutoHoldGoods]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="AutoHoldGoods"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AutoHoldGoods]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoHoldGoods]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PalletType1]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="PalletType1"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType1]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PalletType2]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="PalletType2"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType2]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType2]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PalletType3]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="PalletType3"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType3]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType3]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumQuantity1]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumQuantity1"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity1]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumQuantity2]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumQuantity2"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity2]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity2]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumQuantity3]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumQuantity3"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity3]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity3]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumVolume1]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumVolume1"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume1]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumVolume2]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumVolume2"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume2]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume2]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaximumVolume3]"
+                      cachedDataType="numeric"
+                      cachedName="MaximumVolume3"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume3]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume3]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="CustomerType"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ARDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="ARDivisionNo"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerNo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CustomerNo"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowNegative]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="AllowNegative"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowNegative]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowNegative]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ItemCode]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ItemCode"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrimaryBinLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="PrimaryBinLocation"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryBinLocation]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryBinLocation]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LimitPutToIDType]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="LimitPutToIDType"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitPutToIDType]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LimitPutToIDType]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryActiveDate]"
+                      cachedDataType="dbDate"
+                      cachedName="InventoryActiveDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryActiveDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryActiveDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrimaryAutoAssign]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="PrimaryAutoAssign"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryAutoAssign]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryAutoAssign]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GiveInstructionToBreak]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="GiveInstructionToBreak"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GiveInstructionToBreak]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[GiveInstructionToBreak]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="OtwStatus"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwStatus]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwStatus]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwAllowPreBookSO]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="OtwAllowPreBookSO"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwAllowPreBookSO]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookSO]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwAllowPreBookMfg]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="OtwAllowPreBookMfg"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwAllowPreBookMfg]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookMfg]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwPurchaseOrderNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="OtwPurchaseOrderNo"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwPurchaseOrderNo]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwPurchaseOrderNo]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwMfgFGDocumentNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="OtwMfgFGDocumentNo"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwMfgFGDocumentNo]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwMfgFGDocumentNo]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwDepartureDateEst]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwDepartureDateEst"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwDepartureDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDateEst]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwArrivalDateEst]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwArrivalDateEst"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwArrivalDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDateEst]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwClearDateEst]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwClearDateEst"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwClearDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDateEst]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwWhseRecDateEst]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwWhseRecDateEst"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwWhseRecDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDateEst]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwLastWhseRecDate]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwLastWhseRecDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwLastWhseRecDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwLastWhseRecDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BinLocationWhseRec]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="BinLocationWhseRec"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocationWhseRec]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationWhseRec]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowAutoAlloc]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="AllowAutoAlloc"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowAutoAlloc]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowAutoAlloc]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllowShip]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="AllowShip"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowShip]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowShip]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwDepartureDate]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwDepartureDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwDepartureDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwArrivalDate]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwArrivalDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwArrivalDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwClearDate]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwClearDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwClearDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtwWhseRecDate]"
+                      cachedDataType="dbDate"
+                      cachedName="OtwWhseRecDate"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwWhseRecDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDate]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CartMobile]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="CartMobile"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CartMobile]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CartMobile]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PickPriorityCode]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="PickPriorityCode"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickPriorityCode]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PickPriorityCode]" />
+                    <inputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="WarehouseCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocation]"
+                      dataType="wstr"
+                      length="15"
+                      name="BinLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationType]"
+                      dataType="wstr"
+                      length="1"
+                      name="LocationType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Aisle]"
+                      dataType="wstr"
+                      length="5"
+                      name="Aisle" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocationDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="BinLocationDesc" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SortCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="SortCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BayLevel]"
+                      dataType="wstr"
+                      length="1"
+                      name="BayLevel" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AutoAllocate]"
+                      dataType="wstr"
+                      length="1"
+                      name="AutoAllocate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Temporary]"
+                      dataType="wstr"
+                      length="1"
+                      name="Temporary" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableInSO]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableInSO" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableInMfg]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableInMfg" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommentText]"
+                      dataType="wstr"
+                      length="256"
+                      name="CommentText" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitOfMeasure1]"
+                      dataType="wstr"
+                      length="4"
+                      name="UnitOfMeasure1" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastIssuedDate]"
+                      dataType="dbDate"
+                      name="LastIssuedDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceiptDate]"
+                      dataType="dbDate"
+                      name="LastReceiptDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPhysicalDate]"
+                      dataType="dbDate"
+                      name="LastPhysicalDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinimumQuantity]"
+                      dataType="numeric"
+                      name="MinimumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity]"
+                      dataType="numeric"
+                      name="MaximumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume]"
+                      dataType="numeric"
+                      name="MaximumVolume"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbDate"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeCreated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeCreated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserCreatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserCreatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CasePackQuantity]"
+                      dataType="numeric"
+                      name="CasePackQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisablePutAway]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisablePutAway" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DisableMixOfGoods]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableMixOfGoods" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPalletID]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastPalletID" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastPalletLocation]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastPalletLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AutoHoldGoods]"
+                      dataType="wstr"
+                      length="1"
+                      name="AutoHoldGoods" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType1]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType1" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType2]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PalletType3]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType3" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity1]"
+                      dataType="numeric"
+                      name="MaximumQuantity1"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity2]"
+                      dataType="numeric"
+                      name="MaximumQuantity2"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumQuantity3]"
+                      dataType="numeric"
+                      name="MaximumQuantity3"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume1]"
+                      dataType="numeric"
+                      name="MaximumVolume1"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume2]"
+                      dataType="numeric"
+                      name="MaximumVolume2"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaximumVolume3]"
+                      dataType="numeric"
+                      name="MaximumVolume3"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="4"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowNegative]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowNegative" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryBinLocation]"
+                      dataType="wstr"
+                      length="1"
+                      name="PrimaryBinLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitPutToIDType]"
+                      dataType="wstr"
+                      length="1"
+                      name="LimitPutToIDType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryActiveDate]"
+                      dataType="dbDate"
+                      name="InventoryActiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryAutoAssign]"
+                      dataType="wstr"
+                      length="1"
+                      name="PrimaryAutoAssign" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GiveInstructionToBreak]"
+                      dataType="wstr"
+                      length="1"
+                      name="GiveInstructionToBreak" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwStatus" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwAllowPreBookSO]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwAllowPreBookSO" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwAllowPreBookMfg]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwAllowPreBookMfg" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="OtwPurchaseOrderNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwMfgFGDocumentNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="OtwMfgFGDocumentNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwDepartureDateEst]"
+                      dataType="dbDate"
+                      name="OtwDepartureDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwArrivalDateEst]"
+                      dataType="dbDate"
+                      name="OtwArrivalDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwClearDateEst]"
+                      dataType="dbDate"
+                      name="OtwClearDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwWhseRecDateEst]"
+                      dataType="dbDate"
+                      name="OtwWhseRecDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwLastWhseRecDate]"
+                      dataType="dbDate"
+                      name="OtwLastWhseRecDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BinLocationWhseRec]"
+                      dataType="wstr"
+                      length="15"
+                      name="BinLocationWhseRec" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowAutoAlloc]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowAutoAlloc" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllowShip]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowShip" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwDepartureDate]"
+                      dataType="dbDate"
+                      name="OtwDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwArrivalDate]"
+                      dataType="dbDate"
+                      name="OtwArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwClearDate]"
+                      dataType="dbDate"
+                      name="OtwClearDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtwWhseRecDate]"
+                      dataType="dbDate"
+                      name="OtwWhseRecDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CartMobile]"
+                      dataType="wstr"
+                      length="1"
+                      name="CartMobile" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PickPriorityCode]"
+                      dataType="wstr"
+                      length="1"
+                      name="PickPriorityCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate IM404_BinLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate IM404_BinLocation\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_IM404_BinLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate IM404_BinLocation\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{174585A4-02AA-47B9-AAC8-38E24257DD51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Selecto-TS_SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode]"
+                      length="3"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]"
+                      name="WarehouseCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocation]"
+                      length="15"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocation]"
+                      name="BinLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationType]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationType]"
+                      name="LocationType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Aisle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Aisle]"
+                      length="5"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Aisle]"
+                      name="Aisle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocationDesc]"
+                      length="30"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationDesc]"
+                      name="BinLocationDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SortCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SortCode]"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SortCode]"
+                      name="SortCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BayLevel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BayLevel]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BayLevel]"
+                      name="BayLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoAllocate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AutoAllocate]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoAllocate]"
+                      name="AutoAllocate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Temporary]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Temporary]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Temporary]"
+                      name="Temporary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInSO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableInSO]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInSO]"
+                      name="DisableInSO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInMfg]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableInMfg]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableInMfg]"
+                      name="DisableInMfg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommentText]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommentText]"
+                      length="256"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommentText]"
+                      name="CommentText"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitOfMeasure1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitOfMeasure1]"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitOfMeasure1]"
+                      name="UnitOfMeasure1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastIssuedDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastIssuedDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastIssuedDate]"
+                      name="LastIssuedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastReceiptDate]"
+                      name="LastReceiptDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPhysicalDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPhysicalDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPhysicalDate]"
+                      name="LastPhysicalDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinimumQuantity]"
+                      name="MinimumQuantity"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity]"
+                      name="MaximumQuantity"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume]"
+                      name="MaximumVolume"
+                      precision="11"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                      length="8"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeCreated]"
+                      name="TimeCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserCreatedKey]"
+                      name="UserCreatedKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePackQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CasePackQuantity]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CasePackQuantity]"
+                      name="CasePackQuantity"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisablePutAway]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisablePutAway]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisablePutAway]"
+                      name="DisablePutAway"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableMixOfGoods]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableMixOfGoods]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DisableMixOfGoods]"
+                      name="DisableMixOfGoods"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPalletID]"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletID]"
+                      name="LastPalletID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletLocation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPalletLocation]"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastPalletLocation]"
+                      name="LastPalletLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoHoldGoods]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AutoHoldGoods]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AutoHoldGoods]"
+                      name="AutoHoldGoods"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType1]"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType1]"
+                      name="PalletType1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType2]"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType2]"
+                      name="PalletType2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType3]"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PalletType3]"
+                      name="PalletType3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity1]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity1]"
+                      name="MaximumQuantity1"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity2]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity2]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity2]"
+                      name="MaximumQuantity2"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity3]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity3]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumQuantity3]"
+                      name="MaximumQuantity3"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume1]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume1]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume1]"
+                      name="MaximumVolume1"
+                      precision="11"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume2]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume2]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume2]"
+                      name="MaximumVolume2"
+                      precision="11"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume3]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume3]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaximumVolume3]"
+                      name="MaximumVolume3"
+                      precision="11"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      name="CustomerType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      name="CustomerNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowNegative]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowNegative]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowNegative]"
+                      name="AllowNegative"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      length="30"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      name="ItemCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryBinLocation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryBinLocation]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryBinLocation]"
+                      name="PrimaryBinLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LimitPutToIDType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LimitPutToIDType]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[LimitPutToIDType]"
+                      name="LimitPutToIDType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryActiveDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryActiveDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryActiveDate]"
+                      name="InventoryActiveDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryAutoAssign]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryAutoAssign]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrimaryAutoAssign]"
+                      name="PrimaryAutoAssign"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[GiveInstructionToBreak]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GiveInstructionToBreak]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[GiveInstructionToBreak]"
+                      name="GiveInstructionToBreak"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwStatus]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwStatus]"
+                      name="OtwStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookSO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwAllowPreBookSO]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookSO]"
+                      name="OtwAllowPreBookSO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookMfg]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwAllowPreBookMfg]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwAllowPreBookMfg]"
+                      name="OtwAllowPreBookMfg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwPurchaseOrderNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwPurchaseOrderNo]"
+                      length="7"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwPurchaseOrderNo]"
+                      name="OtwPurchaseOrderNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwMfgFGDocumentNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwMfgFGDocumentNo]"
+                      length="7"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwMfgFGDocumentNo]"
+                      name="OtwMfgFGDocumentNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDateEst]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwDepartureDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDateEst]"
+                      name="OtwDepartureDateEst"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDateEst]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwArrivalDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDateEst]"
+                      name="OtwArrivalDateEst"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDateEst]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwClearDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDateEst]"
+                      name="OtwClearDateEst"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDateEst]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwWhseRecDateEst]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDateEst]"
+                      name="OtwWhseRecDateEst"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwLastWhseRecDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwLastWhseRecDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwLastWhseRecDate]"
+                      name="OtwLastWhseRecDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationWhseRec]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocationWhseRec]"
+                      length="15"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[BinLocationWhseRec]"
+                      name="BinLocationWhseRec"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowAutoAlloc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowAutoAlloc]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowAutoAlloc]"
+                      name="AllowAutoAlloc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowShip]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowShip]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllowShip]"
+                      name="AllowShip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwDepartureDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwDepartureDate]"
+                      name="OtwDepartureDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwArrivalDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwArrivalDate]"
+                      name="OtwArrivalDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwClearDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwClearDate]"
+                      name="OtwClearDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwWhseRecDate]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[OtwWhseRecDate]"
+                      name="OtwWhseRecDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CartMobile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CartMobile]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CartMobile]"
+                      name="CartMobile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PickPriorityCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PickPriorityCode]"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PickPriorityCode]"
+                      name="PickPriorityCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="WarehouseCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocation]"
+                      dataType="wstr"
+                      length="15"
+                      name="BinLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationType]"
+                      dataType="wstr"
+                      length="1"
+                      name="LocationType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Aisle]"
+                      dataType="wstr"
+                      length="5"
+                      name="Aisle" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocationDesc]"
+                      dataType="wstr"
+                      length="30"
+                      name="BinLocationDesc" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SortCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="SortCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BayLevel]"
+                      dataType="wstr"
+                      length="1"
+                      name="BayLevel" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AutoAllocate]"
+                      dataType="wstr"
+                      length="1"
+                      name="AutoAllocate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Temporary]"
+                      dataType="wstr"
+                      length="1"
+                      name="Temporary" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableInSO]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableInSO" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableInMfg]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableInMfg" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommentText]"
+                      dataType="wstr"
+                      length="256"
+                      name="CommentText" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitOfMeasure1]"
+                      dataType="wstr"
+                      length="4"
+                      name="UnitOfMeasure1" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastIssuedDate]"
+                      dataType="dbDate"
+                      name="LastIssuedDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastReceiptDate]"
+                      dataType="dbDate"
+                      name="LastReceiptDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPhysicalDate]"
+                      dataType="dbDate"
+                      name="LastPhysicalDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinimumQuantity]"
+                      dataType="numeric"
+                      name="MinimumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity]"
+                      dataType="numeric"
+                      name="MaximumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume]"
+                      dataType="numeric"
+                      name="MaximumVolume"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbDate"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeCreated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeCreated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserCreatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserCreatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CasePackQuantity]"
+                      dataType="numeric"
+                      name="CasePackQuantity"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisablePutAway]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisablePutAway" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DisableMixOfGoods]"
+                      dataType="wstr"
+                      length="1"
+                      name="DisableMixOfGoods" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPalletID]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastPalletID" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastPalletLocation]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastPalletLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AutoHoldGoods]"
+                      dataType="wstr"
+                      length="1"
+                      name="AutoHoldGoods" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType1]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType1" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType2]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PalletType3]"
+                      dataType="wstr"
+                      length="4"
+                      name="PalletType3" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity1]"
+                      dataType="numeric"
+                      name="MaximumQuantity1"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity2]"
+                      dataType="numeric"
+                      name="MaximumQuantity2"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumQuantity3]"
+                      dataType="numeric"
+                      name="MaximumQuantity3"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume1]"
+                      dataType="numeric"
+                      name="MaximumVolume1"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume2]"
+                      dataType="numeric"
+                      name="MaximumVolume2"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaximumVolume3]"
+                      dataType="numeric"
+                      name="MaximumVolume3"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="4"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowNegative]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowNegative" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryBinLocation]"
+                      dataType="wstr"
+                      length="1"
+                      name="PrimaryBinLocation" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LimitPutToIDType]"
+                      dataType="wstr"
+                      length="1"
+                      name="LimitPutToIDType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryActiveDate]"
+                      dataType="dbDate"
+                      name="InventoryActiveDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrimaryAutoAssign]"
+                      dataType="wstr"
+                      length="1"
+                      name="PrimaryAutoAssign" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GiveInstructionToBreak]"
+                      dataType="wstr"
+                      length="1"
+                      name="GiveInstructionToBreak" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwStatus" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwAllowPreBookSO]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwAllowPreBookSO" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwAllowPreBookMfg]"
+                      dataType="wstr"
+                      length="1"
+                      name="OtwAllowPreBookMfg" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="OtwPurchaseOrderNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwMfgFGDocumentNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="OtwMfgFGDocumentNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwDepartureDateEst]"
+                      dataType="dbDate"
+                      name="OtwDepartureDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwArrivalDateEst]"
+                      dataType="dbDate"
+                      name="OtwArrivalDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwClearDateEst]"
+                      dataType="dbDate"
+                      name="OtwClearDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwWhseRecDateEst]"
+                      dataType="dbDate"
+                      name="OtwWhseRecDateEst" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwLastWhseRecDate]"
+                      dataType="dbDate"
+                      name="OtwLastWhseRecDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BinLocationWhseRec]"
+                      dataType="wstr"
+                      length="15"
+                      name="BinLocationWhseRec" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowAutoAlloc]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowAutoAlloc" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllowShip]"
+                      dataType="wstr"
+                      length="1"
+                      name="AllowShip" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwDepartureDate]"
+                      dataType="dbDate"
+                      name="OtwDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwArrivalDate]"
+                      dataType="dbDate"
+                      name="OtwArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwClearDate]"
+                      dataType="dbDate"
+                      name="OtwClearDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OtwWhseRecDate]"
+                      dataType="dbDate"
+                      name="OtwWhseRecDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CartMobile]"
+                      dataType="wstr"
+                      length="1"
+                      name="CartMobile" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PickPriorityCode]"
+                      dataType="wstr"
+                      length="1"
+                      name="PickPriorityCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarehouseCode]"
+                      name="WarehouseCode" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocation]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocation]"
+                      name="BinLocation" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationType]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationType]"
+                      name="LocationType" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Aisle]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Aisle]"
+                      name="Aisle" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocationDesc]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocationDesc]"
+                      name="BinLocationDesc" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SortCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SortCode]"
+                      name="SortCode" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BayLevel]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BayLevel]"
+                      name="BayLevel" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AutoAllocate]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AutoAllocate]"
+                      name="AutoAllocate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Temporary]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Temporary]"
+                      name="Temporary" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableInSO]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableInSO]"
+                      name="DisableInSO" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableInMfg]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableInMfg]"
+                      name="DisableInMfg" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommentText]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommentText]"
+                      name="CommentText" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitOfMeasure1]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitOfMeasure1]"
+                      name="UnitOfMeasure1" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastIssuedDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastIssuedDate]"
+                      name="LastIssuedDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastReceiptDate]"
+                      name="LastReceiptDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPhysicalDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPhysicalDate]"
+                      name="LastPhysicalDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinimumQuantity]"
+                      name="MinimumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity]"
+                      name="MaximumQuantity"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume]"
+                      name="MaximumVolume"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeCreated]"
+                      name="TimeCreated" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserCreatedKey]"
+                      name="UserCreatedKey" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CasePackQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CasePackQuantity]"
+                      name="CasePackQuantity"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisablePutAway]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisablePutAway]"
+                      name="DisablePutAway" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableMixOfGoods]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DisableMixOfGoods]"
+                      name="DisableMixOfGoods" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPalletID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPalletID]"
+                      name="LastPalletID" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPalletLocation]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastPalletLocation]"
+                      name="LastPalletLocation" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AutoHoldGoods]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AutoHoldGoods]"
+                      name="AutoHoldGoods" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType1]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType1]"
+                      name="PalletType1" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType2]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType2]"
+                      name="PalletType2" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType3]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PalletType3]"
+                      name="PalletType3" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity1]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity1]"
+                      name="MaximumQuantity1"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity2]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity2]"
+                      name="MaximumQuantity2"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity3]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumQuantity3]"
+                      name="MaximumQuantity3"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume1]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume1]"
+                      name="MaximumVolume1"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume2]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume2]"
+                      name="MaximumVolume2"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume3]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaximumVolume3]"
+                      name="MaximumVolume3"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      name="CustomerType" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      name="CustomerNo" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowNegative]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowNegative]"
+                      name="AllowNegative" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      name="ItemCode" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryBinLocation]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryBinLocation]"
+                      name="PrimaryBinLocation" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LimitPutToIDType]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LimitPutToIDType]"
+                      name="LimitPutToIDType" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryActiveDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryActiveDate]"
+                      name="InventoryActiveDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryAutoAssign]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrimaryAutoAssign]"
+                      name="PrimaryAutoAssign" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GiveInstructionToBreak]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GiveInstructionToBreak]"
+                      name="GiveInstructionToBreak" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwStatus]"
+                      name="OtwStatus" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwAllowPreBookSO]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwAllowPreBookSO]"
+                      name="OtwAllowPreBookSO" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwAllowPreBookMfg]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwAllowPreBookMfg]"
+                      name="OtwAllowPreBookMfg" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwPurchaseOrderNo]"
+                      name="OtwPurchaseOrderNo" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwMfgFGDocumentNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwMfgFGDocumentNo]"
+                      name="OtwMfgFGDocumentNo" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwDepartureDateEst]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwDepartureDateEst]"
+                      name="OtwDepartureDateEst" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwArrivalDateEst]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwArrivalDateEst]"
+                      name="OtwArrivalDateEst" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwClearDateEst]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwClearDateEst]"
+                      name="OtwClearDateEst" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwWhseRecDateEst]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwWhseRecDateEst]"
+                      name="OtwWhseRecDateEst" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwLastWhseRecDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwLastWhseRecDate]"
+                      name="OtwLastWhseRecDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocationWhseRec]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BinLocationWhseRec]"
+                      name="BinLocationWhseRec" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowAutoAlloc]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowAutoAlloc]"
+                      name="AllowAutoAlloc" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowShip]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllowShip]"
+                      name="AllowShip" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwDepartureDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwDepartureDate]"
+                      name="OtwDepartureDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwArrivalDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwArrivalDate]"
+                      name="OtwArrivalDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwClearDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwClearDate]"
+                      name="OtwClearDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwWhseRecDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OtwWhseRecDate]"
+                      name="OtwWhseRecDate" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CartMobile]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CartMobile]"
+                      name="CartMobile" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PickPriorityCode]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PickPriorityCode]"
+                      name="PickPriorityCode" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\populate IM404_BinLocation.Paths[OLE DB Source Output]"
+              endId="Package\populate IM404_BinLocation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\populate IM404_BinLocation\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table IM404_BinLocation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BA497F02-EE68-48F4-AF45-C182C738E8FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table IM404_BinLocation"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_IM404_BinLocation" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2BAAA12-F804-40DE-9A79-8CAEDA474288}"
+      DTS:From="Package\truncate table IM404_BinLocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\populate IM404_BinLocation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\truncate table IM404_BinLocation"
+          TopLeft="309,74" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\populate IM404_BinLocation"
+          TopLeft="317,167" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="425.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\populate IM404_BinLocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\populate IM404_BinLocation\OLE DB Source"
+          TopLeft="470,92" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\populate IM404_BinLocation\OLE DB Destination"
+          TopLeft="467,200" />
+        <EdgeLayout
+          Id="Package\populate IM404_BinLocation.Paths[OLE DB Source Output]"
+          TopLeft="548.75,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate IM404_BinLocation\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate IM404_BinLocation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
