@@ -1,0 +1,1719 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2020 4:17:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="N01A-DWSQLPD"
+  DTS:CreatorName="KINETICONET\rlillbac"
+  DTS:DTSID="{9D397F6E-903E-462A-BECE-C2DE0A19F6C1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{059FB5C7-767E-4896-9CFD-6138D42C286D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\populate ods_AR_OpenInvoices"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{65DD17B5-2B89-4B74-BCA5-E578DC0EF821}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="populate ods_AR_OpenInvoices"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_OpenInvoice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="InvoiceNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="InvoiceType"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceType]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ARDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="ARDivisionNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerNo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CustomerNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceDate]"
+                      cachedDataType="dbDate"
+                      cachedName="InvoiceDate"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDate]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceDueDate]"
+                      cachedDataType="dbDate"
+                      cachedName="InvoiceDueDate"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDueDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDueDate]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceDiscountDate]"
+                      cachedDataType="dbDate"
+                      cachedName="InvoiceDiscountDate"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDiscountDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDiscountDate]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceHistoryHeaderSeqNo]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="InvoiceHistoryHeaderSeqNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostingDate]"
+                      cachedDataType="dbDate"
+                      cachedName="PostingDate"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostingDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingDate]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TermsCode]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="TermsCode"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxSchedule]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="TaxSchedule"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxSchedule]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxSchedule]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalespersonDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="SalespersonDivisionNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonDivisionNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalespersonNo]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="SalespersonNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SplitCommissionFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="SplitCommissionFlag"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SplitCommissionFlag]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SplitCommissionFlag]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Comment"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditMemoInvoiceReference]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="CreditMemoInvoiceReference"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditMemoInvoiceReference]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditMemoInvoiceReference]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JobNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="JobNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerPONo]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CustomerPONo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerPONo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostingReference]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostingReference"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostingReference]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingReference]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CheckNo]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CheckNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CheckNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SoldToDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="SoldToDivisionNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SoldToDivisionNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SoldToCustomerNo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="SoldToCustomerNo"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SoldToCustomerNo]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToCustomerNo]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionRate]"
+                      cachedDataType="numeric"
+                      cachedName="CommissionRate"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxableAmt]"
+                      cachedDataType="numeric"
+                      cachedName="TaxableAmt"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxableAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxableAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NonTaxableAmt]"
+                      cachedDataType="numeric"
+                      cachedName="NonTaxableAmt"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NonTaxableAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[NonTaxableAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FreightAmt]"
+                      cachedDataType="numeric"
+                      cachedName="FreightAmt"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FreightAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[FreightAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesTaxAmt]"
+                      cachedDataType="numeric"
+                      cachedName="SalesTaxAmt"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTaxAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTaxAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CostOfSalesAmt]"
+                      cachedDataType="numeric"
+                      cachedName="CostOfSalesAmt"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfSalesAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfSalesAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesSubjectToComm]"
+                      cachedDataType="numeric"
+                      cachedName="SalesSubjectToComm"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesSubjectToComm]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesSubjectToComm]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CostSubjectToComm]"
+                      cachedDataType="numeric"
+                      cachedName="CostSubjectToComm"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostSubjectToComm]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostSubjectToComm]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionAmt]"
+                      cachedDataType="numeric"
+                      cachedName="CommissionAmt"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DiscountAmt]"
+                      cachedDataType="numeric"
+                      cachedName="DiscountAmt"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PaymentsToday]"
+                      cachedDataType="numeric"
+                      cachedName="PaymentsToday"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentsToday]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentsToday]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Balance]"
+                      cachedDataType="numeric"
+                      cachedName="Balance"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Balance]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RetentionAmt]"
+                      cachedDataType="numeric"
+                      cachedName="RetentionAmt"
+                      cachedPrecision="13"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetentionAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[RetentionAmt]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbDate"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeUpdated]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="TimeUpdated"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserUpdatedKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UserUpdatedKey"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]" />
+                    <inputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="InvoiceNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      name="InvoiceType" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDate]"
+                      dataType="dbDate"
+                      name="InvoiceDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDueDate]"
+                      dataType="dbDate"
+                      name="InvoiceDueDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceDiscountDate]"
+                      dataType="dbDate"
+                      name="InvoiceDiscountDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostingDate]"
+                      dataType="dbDate"
+                      name="PostingDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxSchedule]"
+                      dataType="wstr"
+                      length="9"
+                      name="TaxSchedule" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalespersonDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalespersonNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SplitCommissionFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="SplitCommissionFlag" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="30"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditMemoInvoiceReference]"
+                      dataType="wstr"
+                      length="7"
+                      name="CreditMemoInvoiceReference" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="JobNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerPONo]"
+                      dataType="wstr"
+                      length="15"
+                      name="CustomerPONo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostingReference]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostingReference" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CheckNo]"
+                      dataType="wstr"
+                      length="10"
+                      name="CheckNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SoldToDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SoldToDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SoldToCustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="SoldToCustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionRate]"
+                      dataType="numeric"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxableAmt]"
+                      dataType="numeric"
+                      name="TaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NonTaxableAmt]"
+                      dataType="numeric"
+                      name="NonTaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FreightAmt]"
+                      dataType="numeric"
+                      name="FreightAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTaxAmt]"
+                      dataType="numeric"
+                      name="SalesTaxAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostOfSalesAmt]"
+                      dataType="numeric"
+                      name="CostOfSalesAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesSubjectToComm]"
+                      dataType="numeric"
+                      name="SalesSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CostSubjectToComm]"
+                      dataType="numeric"
+                      name="CostSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionAmt]"
+                      dataType="numeric"
+                      name="CommissionAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DiscountAmt]"
+                      dataType="numeric"
+                      name="DiscountAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaymentsToday]"
+                      dataType="numeric"
+                      name="PaymentsToday"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
+                      dataType="numeric"
+                      name="Balance"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetentionAmt]"
+                      dataType="numeric"
+                      name="RetentionAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbDate"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserUpdatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate ods_AR_OpenInvoices\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_AR_OpenInvoice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{174585A4-02AA-47B9-AAC8-38E24257DD51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Selecto-TS_SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceNo]"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceNo]"
+                      name="InvoiceNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceType]"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]"
+                      name="InvoiceType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      length="20"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      name="CustomerNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDate]"
+                      name="InvoiceDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDueDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDueDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDueDate]"
+                      name="InvoiceDueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDiscountDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDiscountDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceDiscountDate]"
+                      name="InvoiceDiscountDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      length="6"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      name="InvoiceHistoryHeaderSeqNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostingDate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingDate]"
+                      name="PostingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TermsCode]"
+                      name="TermsCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxSchedule]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxSchedule]"
+                      length="9"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxSchedule]"
+                      name="TaxSchedule"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonDivisionNo]"
+                      name="SalespersonDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonNo]"
+                      length="4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalespersonNo]"
+                      name="SalespersonNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SplitCommissionFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SplitCommissionFlag]"
+                      length="1"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SplitCommissionFlag]"
+                      name="SplitCommissionFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      length="30"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      name="Comment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditMemoInvoiceReference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditMemoInvoiceReference]"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditMemoInvoiceReference]"
+                      name="CreditMemoInvoiceReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JobNo]"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobNo]"
+                      name="JobNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONo]"
+                      length="15"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONo]"
+                      name="CustomerPONo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingReference]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostingReference]"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostingReference]"
+                      name="PostingReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CheckNo]"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CheckNo]"
+                      name="CheckNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SoldToDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToDivisionNo]"
+                      name="SoldToDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToCustomerNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SoldToCustomerNo]"
+                      length="20"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SoldToCustomerNo]"
+                      name="SoldToCustomerNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionRate]"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxableAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxableAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxableAmt]"
+                      name="TaxableAmt"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[NonTaxableAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NonTaxableAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[NonTaxableAmt]"
+                      name="NonTaxableAmt"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[FreightAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FreightAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[FreightAmt]"
+                      name="FreightAmt"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTaxAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTaxAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTaxAmt]"
+                      name="SalesTaxAmt"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfSalesAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostOfSalesAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostOfSalesAmt]"
+                      name="CostOfSalesAmt"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesSubjectToComm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesSubjectToComm]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesSubjectToComm]"
+                      name="SalesSubjectToComm"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostSubjectToComm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostSubjectToComm]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostSubjectToComm]"
+                      name="CostSubjectToComm"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionAmt]"
+                      name="CommissionAmt"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmt]"
+                      name="DiscountAmt"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentsToday]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaymentsToday]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaymentsToday]"
+                      name="PaymentsToday"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Balance]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Balance]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[Balance]"
+                      name="Balance"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[RetentionAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RetentionAmt]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[RetentionAmt]"
+                      name="RetentionAmt"
+                      precision="13"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                      length="8"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                      name="TimeUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                      name="UserUpdatedKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="InvoiceNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      name="InvoiceType" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDate]"
+                      dataType="dbDate"
+                      name="InvoiceDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDueDate]"
+                      dataType="dbDate"
+                      name="InvoiceDueDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceDiscountDate]"
+                      dataType="dbDate"
+                      name="InvoiceDiscountDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostingDate]"
+                      dataType="dbDate"
+                      name="PostingDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TermsCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxSchedule]"
+                      dataType="wstr"
+                      length="9"
+                      name="TaxSchedule" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SalespersonDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      name="SalespersonNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SplitCommissionFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="SplitCommissionFlag" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      dataType="wstr"
+                      length="30"
+                      name="Comment" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditMemoInvoiceReference]"
+                      dataType="wstr"
+                      length="7"
+                      name="CreditMemoInvoiceReference" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JobNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="JobNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONo]"
+                      dataType="wstr"
+                      length="15"
+                      name="CustomerPONo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostingReference]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostingReference" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CheckNo]"
+                      dataType="wstr"
+                      length="10"
+                      name="CheckNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SoldToDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="SoldToDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SoldToCustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="SoldToCustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionRate]"
+                      dataType="numeric"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxableAmt]"
+                      dataType="numeric"
+                      name="TaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NonTaxableAmt]"
+                      dataType="numeric"
+                      name="NonTaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FreightAmt]"
+                      dataType="numeric"
+                      name="FreightAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTaxAmt]"
+                      dataType="numeric"
+                      name="SalesTaxAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostOfSalesAmt]"
+                      dataType="numeric"
+                      name="CostOfSalesAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesSubjectToComm]"
+                      dataType="numeric"
+                      name="SalesSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostSubjectToComm]"
+                      dataType="numeric"
+                      name="CostSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CommissionAmt]"
+                      dataType="numeric"
+                      name="CommissionAmt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmt]"
+                      dataType="numeric"
+                      name="DiscountAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaymentsToday]"
+                      dataType="numeric"
+                      name="PaymentsToday"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Balance]"
+                      dataType="numeric"
+                      name="Balance"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RetentionAmt]"
+                      dataType="numeric"
+                      name="RetentionAmt"
+                      precision="13"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbDate"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserUpdatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceNo]"
+                      name="InvoiceNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceType]"
+                      name="InvoiceType" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      name="CustomerNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDate]"
+                      name="InvoiceDate" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDueDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDueDate]"
+                      name="InvoiceDueDate" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDiscountDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceDiscountDate]"
+                      name="InvoiceDiscountDate" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostingDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostingDate]"
+                      name="PostingDate" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TermsCode]"
+                      name="TermsCode" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxSchedule]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxSchedule]"
+                      name="TaxSchedule" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonDivisionNo]"
+                      name="SalespersonDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonNo]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalespersonNo]"
+                      name="SalespersonNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SplitCommissionFlag]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SplitCommissionFlag]"
+                      name="SplitCommissionFlag" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      name="Comment" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditMemoInvoiceReference]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditMemoInvoiceReference]"
+                      name="CreditMemoInvoiceReference" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JobNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JobNo]"
+                      name="JobNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONo]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONo]"
+                      name="CustomerPONo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostingReference]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostingReference]"
+                      name="PostingReference" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CheckNo]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CheckNo]"
+                      name="CheckNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SoldToDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SoldToDivisionNo]"
+                      name="SoldToDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SoldToCustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SoldToCustomerNo]"
+                      name="SoldToCustomerNo" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionRate]"
+                      name="CommissionRate"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxableAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxableAmt]"
+                      name="TaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NonTaxableAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NonTaxableAmt]"
+                      name="NonTaxableAmt"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FreightAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FreightAmt]"
+                      name="FreightAmt"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTaxAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTaxAmt]"
+                      name="SalesTaxAmt"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostOfSalesAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostOfSalesAmt]"
+                      name="CostOfSalesAmt"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesSubjectToComm]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesSubjectToComm]"
+                      name="SalesSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostSubjectToComm]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CostSubjectToComm]"
+                      name="CostSubjectToComm"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CommissionAmt]"
+                      name="CommissionAmt"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmt]"
+                      name="DiscountAmt"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaymentsToday]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaymentsToday]"
+                      name="PaymentsToday"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Balance]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Balance]"
+                      name="Balance"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RetentionAmt]"
+                      dataType="numeric"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RetentionAmt]"
+                      name="RetentionAmt"
+                      precision="13"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbDate"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                      name="TimeUpdated" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                      name="UserUpdatedKey" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\populate ods_AR_OpenInvoices.Paths[OLE DB Source Output]"
+              endId="Package\populate ods_AR_OpenInvoices\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\populate ods_AR_OpenInvoices\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate openinvoices"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E8942302-C915-4C0A-A972-59564C325620}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate openinvoices"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_AR_OpenInvoice" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4EC72DCC-197A-47FB-8752-002384E71296}"
+      DTS:From="Package\truncate openinvoices"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\populate ods_AR_OpenInvoices" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\truncate openinvoices"
+          TopLeft="522,111" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\populate ods_AR_OpenInvoices"
+          TopLeft="535,216" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="613,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,63"
+              Start="0,0"
+              End="36,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="32,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,31.5"
+                    Point2="36,31.5"
+                    Point3="36,35.5" />
+                  <mssgle:LineSegment
+                    End="36,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\populate ods_AR_OpenInvoices">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\populate ods_AR_OpenInvoices\OLE DB Source"
+          TopLeft="481,118" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\populate ods_AR_OpenInvoices\OLE DB Destination"
+          TopLeft="486,252" />
+        <EdgeLayout
+          Id="Package\populate ods_AR_OpenInvoices.Paths[OLE DB Source Output]"
+          TopLeft="556,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,92"
+              Start="0,0"
+              End="15.5,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
+                  <mssgle:LineSegment
+                    End="11.5,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,46"
+                    Point2="15.5,46"
+                    Point3="15.5,50" />
+                  <mssgle:LineSegment
+                    End="15.5,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate ods_AR_OpenInvoices\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate ods_AR_OpenInvoices\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
