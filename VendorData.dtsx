@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="VendorData"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{AB983449-DE7D-422B-A874-2FF48D5310DA}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{11C3EBE1-55A7-4063-B11E-1600A5DC1B1E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5390,7 +5390,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc po detail"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -5406,7 +5406,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="trunc po header"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9743,7 +9743,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate ap terms"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9759,7 +9759,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate AP_Vendor"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9775,7 +9775,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate AP_VendorRemit"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9924,6 +9924,10 @@
           Id="Package\Vendors and associated data\get bank codes"
           TopLeft="212,144" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Vendors and associated data\get Vendor Remit"
+          TopLeft="318,336" />
+        <NodeLayout
           Size="136,42"
           Id="Package\Vendors and associated data\get vendors"
           TopLeft="49,146" />
@@ -9935,6 +9939,10 @@
           Size="178,42"
           Id="Package\Vendors and associated data\truncate AP_Vendor"
           TopLeft="31,20" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Vendors and associated data\truncate AP_VendorRemit"
+          TopLeft="304,246" />
         <NodeLayout
           Size="167,42"
           Id="Package\Vendors and associated data\truncate GL_Bank"
@@ -10017,14 +10025,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Vendors and associated data\truncate AP_VendorRemit"
-          TopLeft="304,246" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Vendors and associated data\get Vendor Remit"
-          TopLeft="318,336" />
         <EdgeLayout
           Id="Package\Vendors and associated data.PrecedenceConstraints[Constraint 3]"
           TopLeft="401.25,288">
@@ -10139,7 +10139,7 @@
     design-time-name="Package\Purchase Order History\get po header">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\Purchase Order History\get po header\OLE DB Source"
@@ -10179,9 +10179,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10370,6 +10368,82 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Vendors and associated data\get Vendor Remit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Source"
+          TopLeft="487,139" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination"
+          TopLeft="505,252" />
+        <EdgeLayout
+          Id="Package\Vendors and associated data\get Vendor Remit.Paths[OLE DB Source Output]"
+          TopLeft="562,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.5,71"
+              Start="0,0"
+              End="28.5,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="24.5,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,35.5"
+                    Point2="28.5,35.5"
+                    Point3="28.5,39.5" />
+                  <mssgle:LineSegment
+                    End="28.5,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Vendors and associated data\get vendors">
     <LayoutInfo>
       <GraphLayout
@@ -10436,82 +10510,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Vendors and associated data\get vendors\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Vendors and associated data\get Vendor Remit">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Source"
-          TopLeft="487,139" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination"
-          TopLeft="505,252" />
-        <EdgeLayout
-          Id="Package\Vendors and associated data\get Vendor Remit.Paths[OLE DB Source Output]"
-          TopLeft="562,181">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="28.5,71"
-              Start="0,0"
-              End="28.5,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5"
-                    Point2="0,35.5"
-                    Point3="4,35.5" />
-                  <mssgle:LineSegment
-                    End="24.5,35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.5,35.5"
-                    Point2="28.5,35.5"
-                    Point3="28.5,39.5" />
-                  <mssgle:LineSegment
-                    End="28.5,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Vendors and associated data\get Vendor Remit\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
