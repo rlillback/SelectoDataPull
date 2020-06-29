@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{BE65D43A-2B84-476B-AD9A-1B7AE308BBBC}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{318F768B-222E-4206-8CD9-B63938EED9F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4201,6 +4201,1293 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\populate IM_ItemTransactionHistory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C7182D33-CD48-4EBE-A9F9-210B930ED313}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="populate IM_ItemTransactionHistory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_IM_ItemTransactionHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F496E98B-8CBB-48A1-9160-DC22C51301B6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[N01A-DWSQLPD.SELECTOJDE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ItemCode]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ItemCode"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WarehouseCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="WarehouseCode"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionDate]"
+                      cachedDataType="dbDate"
+                      cachedName="TransactionDate"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionDate]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionCode]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="TransactionCode"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EntryNo]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EntryNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntryNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SequenceNo]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="SequenceNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SequenceNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SequenceNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMTransactionEntryComment]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="IMTransactionEntryComment"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMTransactionEntryComment]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMTransactionEntryComment]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[APDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="APDivisionNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VendorNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="VendorNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ARDivisionNo]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="ARDivisionNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerNo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CustomerNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReferenceDate]"
+                      cachedDataType="dbDate"
+                      cachedName="ReferenceDate"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferenceDate]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceDate]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FiscalCalYear]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FiscalCalYear"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalCalYear]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalYear]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FiscalCalPeriod]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="FiscalCalPeriod"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalCalPeriod]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalPeriod]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipToCode]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="ShipToCode"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToCode]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToCode]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="InvoiceType"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceType]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceHistoryHeaderSeqNo]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="InvoiceHistoryHeaderSeqNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReceiptHistoryHeaderSeqNo]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="ReceiptHistoryHeaderSeqNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReceiptHistoryHeaderSeqNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryHeaderSeqNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReceiptHistoryPurchaseOrderNo]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="ReceiptHistoryPurchaseOrderNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReceiptHistoryPurchaseOrderNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryPurchaseOrderNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionQty]"
+                      cachedDataType="numeric"
+                      cachedName="TransactionQty"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionQty]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionQty]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitCost]"
+                      cachedDataType="numeric"
+                      cachedName="UnitCost"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitCost]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AllocatedCost]"
+                      cachedDataType="numeric"
+                      cachedName="AllocatedCost"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocatedCost]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="numeric"
+                      cachedName="UnitPrice"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExtendedPrice]"
+                      cachedDataType="numeric"
+                      cachedName="ExtendedPrice"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedPrice]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedPrice]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExtendedCost]"
+                      cachedDataType="numeric"
+                      cachedName="ExtendedCost"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedCost]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExtendedStandardCost]"
+                      cachedDataType="numeric"
+                      cachedName="ExtendedStandardCost"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedStandardCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedStandardCost]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbDate"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TimeUpdated]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="TimeUpdated"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserUpdatedKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UserUpdatedKey"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceJournal]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="SourceJournal"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceJournal]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceJournal]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JournalNoGLBatchNo]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="JournalNoGLBatchNo"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JournalNoGLBatchNo]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[JournalNoGLBatchNo]" />
+                    <inputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataRefreshedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRefreshedOn"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="WarehouseCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionDate]"
+                      dataType="dbDate"
+                      name="TransactionDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntryNo]"
+                      dataType="wstr"
+                      length="10"
+                      name="EntryNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SequenceNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="SequenceNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMTransactionEntryComment]"
+                      dataType="wstr"
+                      length="30"
+                      name="IMTransactionEntryComment" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[APDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="APDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="VendorNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferenceDate]"
+                      dataType="dbDate"
+                      name="ReferenceDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalCalYear]"
+                      dataType="wstr"
+                      length="4"
+                      name="FiscalCalYear" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalCalPeriod]"
+                      dataType="wstr"
+                      length="2"
+                      name="FiscalCalPeriod" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToCode]"
+                      dataType="wstr"
+                      length="4"
+                      name="ShipToCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      name="InvoiceType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReceiptHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="ReceiptHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReceiptHistoryPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="ReceiptHistoryPurchaseOrderNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionQty]"
+                      dataType="numeric"
+                      name="TransactionQty"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitCost]"
+                      dataType="numeric"
+                      name="UnitCost"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AllocatedCost]"
+                      dataType="numeric"
+                      name="AllocatedCost"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="numeric"
+                      name="UnitPrice"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedPrice]"
+                      dataType="numeric"
+                      name="ExtendedPrice"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedCost]"
+                      dataType="numeric"
+                      name="ExtendedCost"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExtendedStandardCost]"
+                      dataType="numeric"
+                      name="ExtendedStandardCost"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbDate"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserUpdatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceJournal]"
+                      dataType="wstr"
+                      length="2"
+                      name="SourceJournal" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JournalNoGLBatchNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="JournalNoGLBatchNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\populate IM_ItemTransactionHistory\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ods_IM_ItemTransactionHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{174585A4-02AA-47B9-AAC8-38E24257DD51}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Selecto-TS_SQLEXPRESS.SQLSage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      length="30"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      name="ItemCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode]"
+                      length="3"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[WarehouseCode]"
+                      name="WarehouseCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      name="TransactionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCode]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EntryNo]"
+                      length="10"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[EntryNo]"
+                      name="EntryNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SequenceNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SequenceNo]"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SequenceNo]"
+                      name="SequenceNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMTransactionEntryComment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IMTransactionEntryComment]"
+                      length="30"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMTransactionEntryComment]"
+                      name="IMTransactionEntryComment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[APDivisionNo]"
+                      name="APDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                      length="7"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[VendorNo]"
+                      name="VendorNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      length="20"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerNo]"
+                      name="CustomerNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferenceDate]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceDate]"
+                      name="ReferenceDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalYear]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalCalYear]"
+                      length="4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalYear]"
+                      name="FiscalCalYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalPeriod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalCalPeriod]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalCalPeriod]"
+                      name="FiscalCalPeriod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToCode]"
+                      length="4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToCode]"
+                      name="ShipToCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceType]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceType]"
+                      name="InvoiceType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      name="InvoiceHistoryHeaderSeqNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReceiptHistoryHeaderSeqNo]"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryHeaderSeqNo]"
+                      name="ReceiptHistoryHeaderSeqNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryPurchaseOrderNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReceiptHistoryPurchaseOrderNo]"
+                      length="7"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReceiptHistoryPurchaseOrderNo]"
+                      name="ReceiptHistoryPurchaseOrderNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionQty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionQty]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionQty]"
+                      name="TransactionQty"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitCost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitCost]"
+                      name="UnitCost"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocatedCost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[AllocatedCost]"
+                      name="AllocatedCost"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedPrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedPrice]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedPrice]"
+                      name="ExtendedPrice"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedCost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedCost]"
+                      name="ExtendedCost"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedStandardCost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedStandardCost]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedStandardCost]"
+                      name="ExtendedStandardCost"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                      length="8"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeUpdated]"
+                      name="TimeUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                      length="10"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserUpdatedKey]"
+                      name="UserUpdatedKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceJournal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceJournal]"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceJournal]"
+                      name="SourceJournal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[JournalNoGLBatchNo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JournalNoGLBatchNo]"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[JournalNoGLBatchNo]"
+                      name="JournalNoGLBatchNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="WarehouseCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      dataType="dbDate"
+                      name="TransactionDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCode]"
+                      dataType="wstr"
+                      length="2"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EntryNo]"
+                      dataType="wstr"
+                      length="10"
+                      name="EntryNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SequenceNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="SequenceNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IMTransactionEntryComment]"
+                      dataType="wstr"
+                      length="30"
+                      name="IMTransactionEntryComment" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[APDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="APDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VendorNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="VendorNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      name="ARDivisionNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferenceDate]"
+                      dataType="dbDate"
+                      name="ReferenceDate" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalCalYear]"
+                      dataType="wstr"
+                      length="4"
+                      name="FiscalCalYear" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalCalPeriod]"
+                      dataType="wstr"
+                      length="2"
+                      name="FiscalCalPeriod" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToCode]"
+                      dataType="wstr"
+                      length="4"
+                      name="ShipToCode" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      name="InvoiceType" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReceiptHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="ReceiptHistoryHeaderSeqNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReceiptHistoryPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      name="ReceiptHistoryPurchaseOrderNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionQty]"
+                      dataType="numeric"
+                      name="TransactionQty"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitCost]"
+                      dataType="numeric"
+                      name="UnitCost"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AllocatedCost]"
+                      dataType="numeric"
+                      name="AllocatedCost"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="numeric"
+                      name="UnitPrice"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedPrice]"
+                      dataType="numeric"
+                      name="ExtendedPrice"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedCost]"
+                      dataType="numeric"
+                      name="ExtendedCost"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedStandardCost]"
+                      dataType="numeric"
+                      name="ExtendedStandardCost"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbDate"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      name="TimeUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="UserUpdatedKey" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceJournal]"
+                      dataType="wstr"
+                      length="2"
+                      name="SourceJournal" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[JournalNoGLBatchNo]"
+                      dataType="wstr"
+                      length="6"
+                      name="JournalNoGLBatchNo" />
+                    <externalMetadataColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      name="DataRefreshedOn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      name="ItemCode" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarehouseCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WarehouseCode]"
+                      name="WarehouseCode" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      name="TransactionDate" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCode]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EntryNo]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EntryNo]"
+                      name="EntryNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SequenceNo]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SequenceNo]"
+                      name="SequenceNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IMTransactionEntryComment]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IMTransactionEntryComment]"
+                      name="IMTransactionEntryComment" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[APDivisionNo]"
+                      name="APDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VendorNo]"
+                      name="VendorNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARDivisionNo]"
+                      name="ARDivisionNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerNo]"
+                      name="CustomerNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferenceDate]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferenceDate]"
+                      name="ReferenceDate" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalCalYear]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalCalYear]"
+                      name="FiscalCalYear" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalCalPeriod]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalCalPeriod]"
+                      name="FiscalCalPeriod" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToCode]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToCode]"
+                      name="ShipToCode" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceType]"
+                      name="InvoiceType" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InvoiceHistoryHeaderSeqNo]"
+                      name="InvoiceHistoryHeaderSeqNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReceiptHistoryHeaderSeqNo]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReceiptHistoryHeaderSeqNo]"
+                      name="ReceiptHistoryHeaderSeqNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReceiptHistoryPurchaseOrderNo]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReceiptHistoryPurchaseOrderNo]"
+                      name="ReceiptHistoryPurchaseOrderNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionQty]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionQty]"
+                      name="TransactionQty"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitCost]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitCost]"
+                      name="UnitCost"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllocatedCost]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AllocatedCost]"
+                      name="AllocatedCost"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedPrice]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedPrice]"
+                      name="ExtendedPrice"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedCost]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedCost]"
+                      name="ExtendedCost"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedStandardCost]"
+                      dataType="numeric"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedStandardCost]"
+                      name="ExtendedStandardCost"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbDate"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeUpdated]"
+                      name="TimeUpdated" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserUpdatedKey]"
+                      name="UserUpdatedKey" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceJournal]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceJournal]"
+                      name="SourceJournal" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JournalNoGLBatchNo]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[JournalNoGLBatchNo]"
+                      name="JournalNoGLBatchNo" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataRefreshedOn]"
+                      name="DataRefreshedOn" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\populate IM_ItemTransactionHistory.Paths[OLE DB Source Output]"
+              endId="Package\populate IM_ItemTransactionHistory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\populate IM_ItemTransactionHistory\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\populate IM_PriceCode"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -5268,6 +6555,22 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\truncate IM_ItemTransactionHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EE719180-7C3E-4FC7-922E-9B8E88F3D268}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate IM_ItemTransactionHistory"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F496E98B-8CBB-48A1-9160-DC22C51301B6}"
+          SQLTask:SqlStatementSource="truncate table dbo.ods_IM_ItemTransactionHistory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\truncate IM_PriceCode"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -5275,7 +6578,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate IM_PriceCode"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5291,7 +6594,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate table IM404_BinLocation"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5307,7 +6610,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="truncate table IM404_ItemLocationQuantity"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5349,6 +6652,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\populate AR_CustomerMemo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D24C12BF-7A40-46D6-9007-D3B597FE2036}"
+      DTS:From="Package\truncate IM_ItemTransactionHistory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\populate IM_ItemTransactionHistory" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -5363,6 +6674,10 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="215,42"
+          Id="Package\populate AR_CustomerMemo"
+          TopLeft="932,168" />
+        <NodeLayout
           Size="188,42"
           Id="Package\populate IM_PriceCode"
           TopLeft="94,167" />
@@ -5374,6 +6689,10 @@
           Size="260,42"
           Id="Package\populate IM404_ItemLocationQuantity"
           TopLeft="604,163" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\trunc AR_CustomerMemo"
+          TopLeft="934,93" />
         <NodeLayout
           Size="186,42"
           Id="Package\truncate IM_PriceCode"
@@ -5452,14 +6771,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
-          Id="Package\trunc AR_CustomerMemo"
-          TopLeft="934,93" />
-        <NodeLayout
-          Size="215,42"
-          Id="Package\populate AR_CustomerMemo"
-          TopLeft="932,168" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="1036.5,135">
@@ -5482,9 +6793,105 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="249,42"
+          Id="Package\truncate IM_ItemTransactionHistory"
+          TopLeft="115,268" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\populate IM_ItemTransactionHistory"
+          TopLeft="121,365" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="243,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\populate AR_CustomerMemo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\populate AR_CustomerMemo\OLE DB Source"
+          TopLeft="515,110" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\populate AR_CustomerMemo\OLE DB Destination"
+          TopLeft="506,213" />
+        <EdgeLayout
+          Id="Package\populate AR_CustomerMemo.Paths[OLE DB Source Output]"
+          TopLeft="590.75,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate AR_CustomerMemo\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\populate AR_CustomerMemo\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\populate IM_PriceCode">
     <LayoutInfo>
@@ -5684,32 +7091,44 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\populate AR_CustomerMemo">
+    design-time-name="Package\populate IM_ItemTransactionHistory">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
-          Id="Package\populate AR_CustomerMemo\OLE DB Source"
-          TopLeft="515,110" />
+          Id="Package\populate IM_ItemTransactionHistory\OLE DB Source"
+          TopLeft="432,133" />
         <NodeLayout
           Size="171,42"
-          Id="Package\populate AR_CustomerMemo\OLE DB Destination"
-          TopLeft="506,213" />
+          Id="Package\populate IM_ItemTransactionHistory\OLE DB Destination"
+          TopLeft="444,252" />
         <EdgeLayout
-          Id="Package\populate AR_CustomerMemo.Paths[OLE DB Source Output]"
-          TopLeft="590.75,152">
+          Id="Package\populate IM_ItemTransactionHistory.Paths[OLE DB Source Output]"
+          TopLeft="507,175">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="22.5,77"
               Start="0,0"
-              End="0,53.5">
+              End="22.5,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="18.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,38.5"
+                    Point2="22.5,38.5"
+                    Point3="22.5,42.5" />
+                  <mssgle:LineSegment
+                    End="22.5,69.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5722,7 +7141,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\populate AR_CustomerMemo\OLE DB Source">
+    design-time-name="Package\populate IM_ItemTransactionHistory\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5735,7 +7154,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\populate AR_CustomerMemo\OLE DB Destination">
+    design-time-name="Package\populate IM_ItemTransactionHistory\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
